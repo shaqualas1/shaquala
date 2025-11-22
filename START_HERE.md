@@ -170,17 +170,17 @@ I need your best photos for the website:
 
 ---
 
-### Business Info
-I need these details to set up payments and invoices:
+### Business Info ✅
+**Confirmed:**
+- **Legal Name:** PAIR Charcuterie
+- **Address:** 201 Smithfield Street, Pittsburgh, PA 15222
+- **Tax ID:** 92-0398507
+- **Email:** info@pairpgh.com
+- **Website:** pairpgh.com
 
-1. **Legal business name:** [Your answer]
-2. **Tax ID / EIN:** [Your answer]
-3. **Best phone number:** [Your answer]
-4. **Best email:** [Your answer]
-5. **Physical address:** [Your answer]
-6. **Business hours:** [Your answer]
-
-**→ Can you send this by Wednesday Nov 27?**
+**Still Need:**
+- **Phone number:** [What's your best contact number?]
+- **Hours:** [What are your operating hours?]
 
 ---
 

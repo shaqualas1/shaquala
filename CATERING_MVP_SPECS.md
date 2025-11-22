@@ -356,7 +356,7 @@ Your information:
 [← Back] [Complete Order →]
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 
-Questions? Call us: (412) XXX-XXXX
+Questions? Call us at our shop: 201 Smithfield St, Pittsburgh
 Or email: info@pairpgh.com
 ```
 
@@ -744,8 +744,8 @@ Can't wait to make your event special!
 
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 PAIR Charcuterie
-Downtown Pittsburgh
-[Address] | [Phone] | pairpgh.com
+201 Smithfield Street, Pittsburgh PA 15222
+info@pairpgh.com | pairpgh.com
 Follow us: @pairpgh
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 ```
@@ -792,7 +792,7 @@ NEED CHANGES?
 Guest count change? Dietary additions?
 Contact us at least 72 hours before your event.
 
-📞 (412) XXX-XXXX
+📍 201 Smithfield Street, Pittsburgh PA 15222
 📧 info@pairpgh.com
 
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━

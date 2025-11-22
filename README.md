@@ -327,7 +327,9 @@ This repository contains the complete requirements, technical specifications, an
 ## 📞 Contact & Support
 
 ### PAIR Charcuterie
-- **Address**: Downtown Pittsburgh, PA
+- **Legal Name**: PAIR Charcuterie
+- **Address**: 201 Smithfield Street, Pittsburgh, PA 15222
+- **Tax ID**: 92-0398507
 - **Website**: pairpgh.com
 - **Email**: info@pairpgh.com
 - **Instagram**: @pairpgh
