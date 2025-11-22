@@ -246,18 +246,18 @@ Choose your style:
 ├─────────────────┤ ├─────────────────┤ ├─────────────────┤
 │ [Photo]         │ │ [Photo]         │ │ [Photo]         │
 │                 │ │                 │ │                 │
-│ 3 meats         │ │ 4 meats         │ │ 5 meats         │
-│ 3 cheeses       │ │ 4 cheeses       │ │ 5 cheeses       │
+│ 3 meats         │ │ 4 meats         │ │ 5+ meats        │
+│ 3 cheeses       │ │ 4 cheeses       │ │ 5+ cheeses      │
 │ Accompaniments  │ │ Premium adds    │ │ Full spread     │
-│                 │ │                 │ │ Specialty items │
-│ $30/person      │ │ $45/person      │ │ $65/person      │
+│                 │ │ Seasonal fruits │ │ Specialty items │
+│ $13/person      │ │ $20/person      │ │ $28/person      │
 │                 │ │                 │ │                 │
 │ [○ Select]      │ │ [○ Select]      │ │ [○ Select]      │
 └─────────────────┘ └─────────────────┘ └─────────────────┘
 
 Or: [Build Custom Board →]
 
-Estimated for 50 guests: $1,500 - $3,250
+Estimated for 50 guests: $650 - $1,400
 
 [← Back] [Next →]
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
@@ -700,12 +700,12 @@ Delivery: [123 Liberty Ave, Pittsburgh PA 15222]
 
 PACKAGE: Premium Spread
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-Board Package (50 guests @ $45)      $2,250
+Board Package (50 guests @ $20)      $1,000
 Dietary Accommodations: Vegetarian       —
 Delivery & Setup                        $25
-Service Fee (10%)                      $228
+Service Fee (10%)                      $103
 ─────────────────────────────────────────
-TOTAL:                              $2,503
+TOTAL:                              $1,128
 
 [Button: Confirm & Pay $2,503]
 

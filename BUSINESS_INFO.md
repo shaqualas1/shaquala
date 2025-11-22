@@ -21,14 +21,18 @@
 - **Facebook:** [If applicable]
 
 ### Business Hours
-**[Please confirm your hours]**
-- Monday: [Time - Time]
-- Tuesday: [Time - Time]
-- Wednesday: [Time - Time]
-- Thursday: [Time - Time]
-- Friday: [Time - Time]
-- Saturday: [Time - Time]
-- Sunday: [Time - Time]
+
+**Shop Hours:**
+- Monday-Saturday: 7:30am - 3:30pm
+- Sunday: Closed
+
+**Catering/Ghost Kitchen (Delivery & Pickup):**
+- Monday-Saturday: 5:00pm - 9:00pm
+- Sunday: Closed
+
+**Note for Website:**
+- Catering orders available 7 days/week (order online anytime)
+- Delivery/pickup during ghost kitchen hours or by appointment
 
 ### Banking & Payment Details
 
@@ -305,11 +309,14 @@ Please provide:
    - Do you have additional catering photos? [Yes/No]
    - Need professional photoshoot? [Yes/No - $1,500]
 
-4. **Catering Pricing:**
-   - Classic board: $[??] per person
-   - Premium board: $[??] per person
-   - Deluxe board: $[??] per person
-   - Or: Fixed packages? (Small $300, Medium $800, etc.)
+4. **Catering Pricing:** ✅
+   - **Classic:** $13 per person (base level)
+   - **Premium:** $20 per person (estimated - 50% more than classic)
+   - **Deluxe:** $28 per person (estimated - premium tier)
+   
+   **Minimums:**
+   - No minimum order for catering
+   - Recommended minimum: 10 guests ($130) for best value
 
 5. **Staff Details:**
    - Who will manage dashboard day-to-day? [Name]
