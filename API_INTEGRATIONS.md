@@ -474,7 +474,7 @@ const SMS_TEMPLATES = {
     `🎁 You earned ${points} points! Redeem for: ${reward}`,
   
   MARKETING: () => 
-    `🍷 Happy Hour at PAIR! 20% off all boards today 4-6pm. Order now: https://pair.co`
+    `🍷 Happy Hour at PAIR! 20% off all boards today 4-6pm. Order now: https://pairpgh.com`
 };
 ```
 

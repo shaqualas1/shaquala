@@ -357,7 +357,7 @@ Your information:
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 
 Questions? Call us: (412) XXX-XXXX
-Or email: catering@pairpgh.com
+Or email: info@pairpgh.com
 ```
 
 ---
@@ -793,7 +793,7 @@ Guest count change? Dietary additions?
 Contact us at least 72 hours before your event.
 
 📞 (412) XXX-XXXX
-📧 catering@pairpgh.com
+📧 info@pairpgh.com
 
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 CANCELLATION POLICY

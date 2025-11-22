@@ -115,66 +115,156 @@
 
 ---
 
-### **Week 4: Dec 16-22** - Build Phase 2 & Testing
+### **Week 4: Dec 16-22** - Build Phase 2 & EARLY TESTING ⚠️
+**THIS IS CRITICAL - Test Early, Test Often**
+
 **Developer Tasks:**
 - [ ] Build staff dashboard (Airtable interface)
 - [ ] Build simple pickup ordering page
 - [ ] Set up email automation (SendGrid templates)
+- [ ] **Deploy to staging site** (test.pairpgh.com or similar)
 - [ ] Mobile responsiveness polish
-- [ ] Cross-browser testing (Chrome, Safari, Firefox)
+- [ ] Cross-browser testing (Chrome, Safari, Firefox, mobile browsers)
 - [ ] Security audit
+- [ ] Load testing (simulate 50+ concurrent users)
 
-**Your Tasks:**
-- [ ] Test entire flow: browse → quote → pay
-- [ ] Test on mobile phone
-- [ ] Test delivery calculator with real addresses
-- [ ] Invite staff to test dashboard
+**Your Tasks (START TESTING BY DEC 17!):**
+- [ ] **Dec 17-18:** Test quote calculator with 10+ different scenarios
+  - Different guest counts (10, 25, 50, 100, 200)
+  - Different packages
+  - Different addresses (near, far, outside range)
+  - Edge cases (0 guests, 1000 guests)
+- [ ] **Dec 19:** Test on multiple devices
+  - Your phone (iPhone/Android)
+  - Staff phones
+  - Tablet
+  - Different browsers
+- [ ] **Dec 20:** Staff testing day
+  - Train staff on dashboard
+  - Have them place test orders
+  - Have them update order statuses
+  - Get their feedback
+- [ ] **Dec 21:** Fix any bugs found
+- [ ] **Dec 22:** Final retest of fixed items
+
+**Testing Checklist:**
+- [ ] Quote calculator math is correct
+- [ ] Delivery fees calculate properly
+- [ ] Stripe test payments work
+- [ ] Emails send immediately
+- [ ] Dashboard shows orders in real-time
+- [ ] Mobile layout looks good
+- [ ] All forms validate properly
+- [ ] No broken links
+- [ ] Images load fast
+- [ ] Works on slow internet
+
+**Bug Tracking:**
+- Create simple Google Sheet to track issues
+- Columns: Issue | Priority | Status | Assigned To
+- Developer fixes critical bugs daily
 
 **Deliverables:**
-- ✅ Fully functional MVP
-- ✅ Staff trained on dashboard
-- ✅ All bugs fixed
+- ✅ Fully functional MVP on staging
+- ✅ Staff trained and comfortable
+- ✅ All critical bugs fixed
+- ✅ Testing documentation
 
 ---
 
-### **Week 5: Dec 23-29** - Final Polish & Prep
+### **Week 5: Dec 23-29** - Final Testing, Polish & Prep
+**SECOND ROUND OF TESTING - Real Money Tests**
+
 **Developer Tasks:**
+- [ ] Fix any remaining bugs from Week 4
 - [ ] Final content updates
+- [ ] **Deploy to production URL** (pairpgh.com/catering)
 - [ ] Switch Stripe to live mode
 - [ ] Set up Google Analytics
 - [ ] Configure SEO (title tags, meta descriptions)
 - [ ] Submit sitemap to Google
-- [ ] Final load testing
+- [ ] Final security scan
+- [ ] Set up monitoring/alerting (Sentry for errors)
 
-**Your Tasks:**
-- [ ] Place test order (real payment)
-- [ ] Prepare social media announcements
-- [ ] Update Google My Business
+**Your Tasks - REAL TESTING (Dec 26-28):**
+- [ ] **Dec 26:** Place REAL test order with REAL payment ($10)
+  - Go through entire flow as a customer
+  - Confirm you receive all emails
+  - Check dashboard shows order
+  - Refund the test order
+- [ ] **Dec 27:** Have 3 friends/family place test orders
+  - Use different devices
+  - Use different payment methods
+  - Get their honest feedback
+- [ ] **Dec 28:** Final polish based on feedback
+- [ ] **Dec 29:** One more end-to-end test
+
+**Marketing Prep:**
+- [ ] Prepare social media announcements (draft posts)
+- [ ] Update Google My Business with catering link
 - [ ] Draft email to existing customers
-- [ ] Create in-store signage (QR code)
-- [ ] Print catering menu for staff
+- [ ] Create in-store signage with QR code
+- [ ] Print laminated catering menu for staff
+- [ ] Brief staff: "Launch is tomorrow!"
+
+**Pre-Flight Checklist:**
+- [ ] Stripe live mode working ✅
+- [ ] All emails sending ✅
+- [ ] Dashboard accessible ✅
+- [ ] Mobile site looks perfect ✅
+- [ ] SEO tags in place ✅
+- [ ] Google Analytics tracking ✅
+- [ ] Error monitoring active ✅
+- [ ] Backup plan documented ✅
 
 **Deliverables:**
-- ✅ Site ready for launch
+- ✅ Site ready for public launch
+- ✅ Multiple successful real test orders
 - ✅ Marketing materials prepared
+- ✅ Staff confident and trained
+- ✅ You're confident it works!
 
 ---
 
 ### **Week 6: Dec 30-31** - LAUNCH! 🚀
-**Launch Day Checklist:**
-- [ ] Final smoke test (place order, check emails)
-- [ ] Launch site to production
-- [ ] Update Google My Business with catering link
-- [ ] Post on Instagram: "Now accepting catering orders online!"
-- [ ] Email existing customers
-- [ ] Update in-store signage
-- [ ] Monitor for issues
 
-**Post-Launch:**
-- [ ] Developer on-call for 48 hours
-- [ ] You monitor orders and quotes
-- [ ] Respond to first catering inquiries quickly
-- [ ] Gather feedback
+**Dec 30: Soft Launch (Friends & Family Only)**
+- [ ] 8am: Final smoke test (place order, check emails)
+- [ ] 10am: Site goes live (public can access, but not promoted yet)
+- [ ] 12pm: Share link with 10 trusted customers for feedback
+- [ ] 2pm: Monitor for any issues
+- [ ] 6pm: Review feedback, fix any quick issues
+- [ ] **Goal:** Catch any last-minute bugs before big announcement
+
+**Dec 31: Public Launch 🎉**
+- [ ] 9am: Confirm everything working
+- [ ] 10am: Update Google My Business with catering link
+- [ ] 11am: Post on Instagram: "NEW: Order catering online 24/7! Link in bio 🎉"
+- [ ] 12pm: Email existing customers (subject: "Big News: Online Catering is Here!")
+- [ ] 2pm: Post in local Facebook groups
+- [ ] 3pm: Update in-store signage with QR code
+- [ ] All day: Monitor dashboard, respond immediately to inquiries
+- [ ] End of day: Celebrate! 🍾
+
+**Post-Launch (Jan 1-7):**
+- [ ] Developer on-call for 72 hours (Dec 31 - Jan 2)
+- [ ] You monitor orders and quotes multiple times per day
+- [ ] Respond to first catering inquiries within 2 hours
+- [ ] Gather feedback from every customer
+- [ ] Track metrics: visitors, quote requests, conversions
+- [ ] Daily check-in with developer (first 3 days)
+- [ ] Fix any minor bugs immediately
+
+**Launch Day Emergency Contacts:**
+- Developer phone: [TBD]
+- Hosting support: Webflow/Vercel chat
+- Stripe support: 888-926-2289
+- Your phone: [TBD]
+
+**Backup Plan (if site crashes):**
+- Google Form link ready for quote requests
+- Staff manually enters orders into system later
+- Instagram story: "High demand! Email info@pairpgh.com to order"
 
 ---
 
@@ -329,19 +419,13 @@ If not, we can adjust. Some alternatives:
 
 You'll need a dedicated catering email. Options:
 
-### **Option 1: Google Workspace** (Recommended)
-- Email: catering@pairpgh.com
-- Cost: $6/user/month
-- Pros: Professional, reliable, integrates with Gmail
-- Setup: 15 minutes
+### **Email Setup**
+- Primary: info@pairpgh.com (existing)
+- Optional: Create catering@pairpgh.com as alias/forward
+- All catering inquiries can go to info@pairpgh.com initially
+- Can add dedicated catering email later if volume warrants it
 
-### **Option 2: Forward to existing email**
-- catering@pairpgh.com → your current email
-- Cost: Free (if you have cPanel/Bluehost)
-- Pros: No new inbox to check
-- Cons: Less professional
-
-**What's your preference?**
+**Action:** Confirm info@pairpgh.com is monitored regularly
 
 ---
 

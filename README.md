@@ -328,8 +328,10 @@ This repository contains the complete requirements, technical specifications, an
 
 ### PAIR Charcuterie
 - **Address**: Downtown Pittsburgh, PA
-- **Website**: pair-charcuterie.com *(to be updated)*
-- **Current Site**: WordPress *(will be replaced/integrated)*
+- **Website**: pairpgh.com
+- **Email**: info@pairpgh.com
+- **Instagram**: @pairpgh
+- **Current Site**: WordPress *(will be enhanced with catering system)*
 
 ### Development Team
 - **Repository**: [GitHub Link]
