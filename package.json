@@ -1,0 +1,25 @@
+{
+  "name": "pair-ordering-agent",
+  "version": "0.1.0",
+  "description": "Embeddable pair-ordering chat agent with SQLite-backed API.",
+  "type": "module",
+  "main": "src/server.js",
+  "scripts": {
+    "dev": "nodemon --watch src --watch public src/server.js",
+    "start": "node src/server.js"
+  },
+  "engines": {
+    "node": ">=18.18"
+  },
+  "dependencies": {
+    "better-sqlite3": "^9.6.0",
+    "cors": "^2.8.5",
+    "dotenv": "^16.4.7",
+    "express": "^4.19.2",
+    "nanoid": "^5.0.7",
+    "zod": "^3.23.8"
+  },
+  "devDependencies": {
+    "nodemon": "^3.1.7"
+  }
+}
