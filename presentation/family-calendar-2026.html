@@ -1,0 +1,1603 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Betts Family Calendar & Cash Flow (2026)</title>
+    <style>
+      :root {
+        /* Primary Colors */
+        --primary-blue: #1e3a8a;
+        --primary-blue-light: #3b82f6;
+
+        /* Background Colors */
+        --bg-main: #f5f7fa;
+        --bg-card: #ffffff;
+        --bg-secondary: #fafbfc;
+
+        /* Text Colors */
+        --text-primary: #111827;
+        --text-secondary: #6b7280;
+        --text-tertiary: #9ca3af;
+
+        /* Event Type Colors */
+        --birthday-bg: #fef2f2;
+        --birthday-text: #991b1b;
+        --birthday-border: #fecaca;
+
+        --holiday-bg: #f0fdf4;
+        --holiday-text: #14532d;
+        --holiday-border: #bbf7d0;
+
+        --vacation-bg: #eff6ff;
+        --vacation-text: #1e40af;
+        --vacation-border: #bfdbfe;
+
+        --income-bg: #fffbeb;
+        --income-text: #78350f;
+        --income-border: #fef3c7;
+
+        --payday-bg: #f0fdf4;
+        --payday-text: #065f46;
+        --payday-border: #d1fae5;
+
+        --rental-income-bg: #ecfdf5;
+        --rental-income-text: #064e3b;
+        --rental-income-border: #a7f3d0;
+
+        --mortgage-bg: #fef2f2;
+        --mortgage-text: #7f1d1d;
+        --mortgage-border: #fecaca;
+
+        /* Semantic Colors */
+        --success: #059669;
+        --error: #dc2626;
+        --warning: #f59e0b;
+        --info: #2563eb;
+
+        /* Typography */
+        font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Inter", "Roboto", sans-serif;
+        --text-xs: 0.75rem;
+        --text-sm: 0.875rem;
+        --text-base: 1rem;
+        --text-lg: 1.125rem;
+        --text-xl: 1.25rem;
+        --text-2xl: 1.5rem;
+        --text-3xl: 2rem;
+        --text-4xl: 2.5rem;
+        --font-normal: 400;
+        --font-medium: 500;
+        --font-semibold: 600;
+        --font-bold: 700;
+
+        /* Spacing */
+        --space-1: 0.25rem;
+        --space-2: 0.5rem;
+        --space-3: 0.75rem;
+        --space-4: 1rem;
+        --space-5: 1.25rem;
+        --space-6: 1.5rem;
+        --space-8: 2rem;
+        --space-10: 2.5rem;
+
+        /* Radius */
+        --radius-sm: 6px;
+        --radius-md: 8px;
+        --radius-lg: 12px;
+
+        /* Shadows */
+        --shadow-sm: 0 1px 2px rgba(16, 24, 40, 0.08);
+        --shadow-md: 0 6px 20px rgba(16, 24, 40, 0.10);
+      }
+
+      * {
+        box-sizing: border-box;
+      }
+
+      body {
+        margin: 0;
+        background: var(--bg-main);
+        color: var(--text-primary);
+      }
+
+      .container {
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: var(--space-8) var(--space-4);
+      }
+
+      header {
+        display: flex;
+        gap: var(--space-6);
+        align-items: flex-start;
+        justify-content: space-between;
+        flex-wrap: wrap;
+        margin-bottom: var(--space-6);
+      }
+
+      .title {
+        display: flex;
+        flex-direction: column;
+        gap: var(--space-2);
+      }
+
+      .title h1 {
+        font-size: var(--text-3xl);
+        margin: 0;
+        letter-spacing: -0.02em;
+      }
+
+      .subtitle {
+        color: var(--text-secondary);
+        font-size: var(--text-sm);
+      }
+
+      .top-metrics {
+        display: grid;
+        grid-template-columns: repeat(2, minmax(180px, 1fr));
+        gap: var(--space-3);
+        align-items: stretch;
+        min-width: min(520px, 100%);
+      }
+
+      .metric {
+        background: var(--bg-card);
+        border: 1px solid rgba(17, 24, 39, 0.08);
+        border-radius: var(--radius-lg);
+        padding: var(--space-4);
+        box-shadow: var(--shadow-sm);
+      }
+
+      .metric .label {
+        color: var(--text-secondary);
+        font-size: var(--text-xs);
+        text-transform: uppercase;
+        letter-spacing: 0.06em;
+      }
+
+      .metric .value {
+        font-size: var(--text-xl);
+        font-weight: var(--font-bold);
+        margin-top: var(--space-2);
+      }
+
+      .controls {
+        display: grid;
+        grid-template-columns: 1fr;
+        gap: var(--space-4);
+        margin-bottom: var(--space-6);
+      }
+
+      .control-row {
+        background: var(--bg-card);
+        border: 1px solid rgba(17, 24, 39, 0.08);
+        border-radius: var(--radius-lg);
+        padding: var(--space-4);
+        box-shadow: var(--shadow-sm);
+        display: grid;
+        grid-template-columns: repeat(4, minmax(160px, 1fr));
+        gap: var(--space-4);
+        align-items: end;
+      }
+
+      .field label {
+        display: block;
+        font-size: var(--text-xs);
+        color: var(--text-secondary);
+        margin-bottom: var(--space-2);
+      }
+
+      select,
+      input[type="number"],
+      input[type="text"] {
+        width: 100%;
+        padding: 10px 12px;
+        border-radius: var(--radius-md);
+        border: 1px solid rgba(17, 24, 39, 0.14);
+        background: var(--bg-secondary);
+        outline: none;
+        font-size: var(--text-sm);
+        transition: box-shadow 120ms ease, border-color 120ms ease, background 120ms ease;
+      }
+
+      select:focus,
+      input[type="number"]:focus,
+      input[type="text"]:focus {
+        border-color: rgba(59, 130, 246, 0.8);
+        box-shadow: 0 0 0 4px rgba(59, 130, 246, 0.15);
+        background: #fff;
+      }
+
+      .actions {
+        display: flex;
+        gap: var(--space-3);
+        flex-wrap: wrap;
+        align-items: center;
+        justify-content: space-between;
+        background: var(--bg-card);
+        border: 1px solid rgba(17, 24, 39, 0.08);
+        border-radius: var(--radius-lg);
+        padding: var(--space-4);
+        box-shadow: var(--shadow-sm);
+      }
+
+      .actions-left,
+      .actions-right {
+        display: flex;
+        gap: var(--space-3);
+        flex-wrap: wrap;
+        align-items: center;
+      }
+
+      .button {
+        border: none;
+        cursor: pointer;
+        padding: 10px 14px;
+        border-radius: var(--radius-md);
+        font-size: var(--text-sm);
+        font-weight: var(--font-semibold);
+        transition: transform 80ms ease, filter 120ms ease;
+        user-select: none;
+      }
+
+      .button.primary {
+        color: #fff;
+        background: linear-gradient(180deg, var(--primary-blue-light), var(--primary-blue));
+      }
+
+      .button.secondary {
+        color: var(--text-primary);
+        background: #fff;
+        border: 1px solid rgba(17, 24, 39, 0.14);
+      }
+
+      .button:hover {
+        filter: brightness(0.98);
+      }
+
+      .button:active {
+        transform: scale(0.98);
+      }
+
+      .save-indicator {
+        font-size: var(--text-sm);
+        color: var(--text-secondary);
+        display: inline-flex;
+        gap: var(--space-2);
+        align-items: center;
+      }
+
+      .save-indicator .dot {
+        width: 8px;
+        height: 8px;
+        border-radius: 999px;
+        background: var(--text-tertiary);
+      }
+
+      .save-indicator[data-state="saving"] .dot {
+        background: var(--warning);
+      }
+
+      .save-indicator[data-state="saved"] .dot {
+        background: var(--success);
+      }
+
+      .save-indicator[data-state="error"] .dot {
+        background: var(--error);
+      }
+
+      .grid {
+        display: grid;
+        grid-template-columns: 1fr;
+        gap: var(--space-4);
+      }
+
+      @media (min-width: 768px) {
+        .grid {
+          grid-template-columns: repeat(2, minmax(0, 1fr));
+        }
+      }
+
+      @media (min-width: 1024px) {
+        .grid {
+          grid-template-columns: repeat(3, minmax(0, 1fr));
+        }
+      }
+
+      .card {
+        background: var(--bg-card);
+        border: 1px solid rgba(17, 24, 39, 0.08);
+        border-radius: var(--radius-lg);
+        padding: var(--space-4);
+        box-shadow: var(--shadow-sm);
+        transition: transform 120ms ease, box-shadow 120ms ease;
+        display: flex;
+        flex-direction: column;
+        gap: var(--space-3);
+        min-height: 220px;
+      }
+
+      .card:hover {
+        transform: translateY(-2px);
+        box-shadow: var(--shadow-md);
+      }
+
+      .card-head {
+        display: flex;
+        gap: var(--space-3);
+        align-items: flex-start;
+        justify-content: space-between;
+      }
+
+      .card-title {
+        display: flex;
+        flex-direction: column;
+        gap: var(--space-1);
+        min-width: 0;
+      }
+
+      .date {
+        font-size: var(--text-xs);
+        color: var(--text-secondary);
+      }
+
+      .title-line {
+        font-size: var(--text-base);
+        font-weight: var(--font-bold);
+        line-height: 1.2;
+        margin: 0;
+        word-break: break-word;
+      }
+
+      .details {
+        font-size: var(--text-sm);
+        color: var(--text-secondary);
+        line-height: 1.35;
+        margin: 0;
+      }
+
+      .badge-row {
+        display: inline-flex;
+        gap: var(--space-2);
+        flex-wrap: wrap;
+        justify-content: flex-end;
+      }
+
+      .badge {
+        font-size: var(--text-xs);
+        padding: 6px 10px;
+        border-radius: 999px;
+        border: 1px solid rgba(17, 24, 39, 0.10);
+        background: var(--bg-secondary);
+        color: var(--text-secondary);
+        white-space: nowrap;
+      }
+
+      .badge.type-birthday {
+        background: var(--birthday-bg);
+        color: var(--birthday-text);
+        border-color: var(--birthday-border);
+      }
+      .badge.type-holiday {
+        background: var(--holiday-bg);
+        color: var(--holiday-text);
+        border-color: var(--holiday-border);
+      }
+      .badge.type-vacation {
+        background: var(--vacation-bg);
+        color: var(--vacation-text);
+        border-color: var(--vacation-border);
+      }
+      .badge.type-income-bonus {
+        background: var(--income-bg);
+        color: var(--income-text);
+        border-color: var(--income-border);
+      }
+      .badge.type-payday {
+        background: var(--payday-bg);
+        color: var(--payday-text);
+        border-color: var(--payday-border);
+      }
+      .badge.type-rental-income {
+        background: var(--rental-income-bg);
+        color: var(--rental-income-text);
+        border-color: var(--rental-income-border);
+      }
+      .badge.type-mortgage-payment {
+        background: var(--mortgage-bg);
+        color: var(--mortgage-text);
+        border-color: var(--mortgage-border);
+      }
+
+      .quarter {
+        opacity: 0.9;
+      }
+
+      .card.type-q1 {
+        outline: 2px solid rgba(30, 58, 138, 0.06);
+      }
+      .card.type-q2 {
+        outline: 2px solid rgba(5, 150, 105, 0.06);
+      }
+      .card.type-q3 {
+        outline: 2px solid rgba(245, 158, 11, 0.06);
+      }
+      .card.type-q4 {
+        outline: 2px solid rgba(220, 38, 38, 0.06);
+      }
+
+      .inputs {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: var(--space-3);
+        align-items: end;
+      }
+
+      .inputs.one-col {
+        grid-template-columns: 1fr;
+      }
+
+      .helper-row {
+        display: flex;
+        gap: var(--space-3);
+        align-items: center;
+        justify-content: space-between;
+        flex-wrap: wrap;
+      }
+
+      .helper {
+        font-size: var(--text-xs);
+        color: var(--text-secondary);
+      }
+
+      .helper strong {
+        color: var(--text-primary);
+      }
+
+      .progress {
+        width: 100%;
+        height: 10px;
+        border-radius: 999px;
+        background: rgba(17, 24, 39, 0.08);
+        overflow: hidden;
+      }
+
+      .progress > div {
+        height: 100%;
+        width: 0%;
+        background: linear-gradient(90deg, var(--primary-blue-light), var(--primary-blue));
+        transition: width 180ms ease;
+      }
+
+      .link {
+        font-size: var(--text-xs);
+        color: var(--primary-blue);
+        text-decoration: none;
+        border-bottom: 1px solid rgba(30, 58, 138, 0.25);
+        padding-bottom: 1px;
+      }
+
+      .link:hover {
+        border-bottom-color: rgba(30, 58, 138, 0.6);
+      }
+
+      .empty {
+        background: var(--bg-card);
+        border: 1px dashed rgba(17, 24, 39, 0.20);
+        border-radius: var(--radius-lg);
+        padding: var(--space-8);
+        text-align: center;
+        color: var(--text-secondary);
+      }
+
+      .file-input {
+        display: inline-flex;
+        align-items: center;
+        gap: var(--space-2);
+      }
+
+      .file-input input[type="file"] {
+        display: none;
+      }
+
+      .file-input label {
+        cursor: pointer;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <header>
+        <div class="title">
+          <h1>Betts Family Calendar & Cash Flow (2026)</h1>
+          <div class="subtitle">
+            Calendar view for events, income, mortgages, and budgeting. Data is stored locally in your browser.
+          </div>
+        </div>
+
+        <div class="top-metrics" aria-label="Income summary">
+          <div class="metric">
+            <div class="label">Total Annual Income</div>
+            <div class="value" id="annualIncomeHeader">$0</div>
+          </div>
+          <div class="metric">
+            <div class="label">Total Monthly Income</div>
+            <div class="value" id="monthlyIncomeHeader">$0</div>
+          </div>
+        </div>
+      </header>
+
+      <section class="controls" aria-label="Dashboard and controls">
+        <div class="control-row">
+          <div class="field">
+            <label for="sortSelect">Sort</label>
+            <select id="sortSelect">
+              <option value="date">By Date</option>
+              <option value="type">By Occasion Type</option>
+              <option value="person">By Person</option>
+              <option value="quarter">By Quarter</option>
+            </select>
+          </div>
+          <div class="field">
+            <label for="filterSelect">Filter</label>
+            <select id="filterSelect">
+              <option value="all">All Events</option>
+              <option value="birthdays">Birthdays</option>
+              <option value="holidays">Holidays</option>
+              <option value="vacation">Vacation</option>
+              <option value="mortgage">Mortgage Payments</option>
+              <option value="sister">Sister’s Payments</option>
+              <option value="bonus">Bonus</option>
+              <option value="paydays">Paydays</option>
+              <option value="expensesOnly">Expenses Only</option>
+              <option value="incomeOnly">All Income</option>
+            </select>
+          </div>
+          <div class="field">
+            <label for="quarterSelect">Quarter</label>
+            <select id="quarterSelect">
+              <option value="all">All Quarters</option>
+              <option value="q1">Q1 (Jan–Mar)</option>
+              <option value="q2">Q2 (Apr–Jun)</option>
+              <option value="q3">Q3 (Jul–Sep)</option>
+              <option value="q4">Q4 (Oct–Dec)</option>
+            </select>
+          </div>
+          <div class="field">
+            <label for="searchInput">Search</label>
+            <input id="searchInput" type="text" placeholder="Title, person, details…" autocomplete="off" />
+          </div>
+        </div>
+
+        <div class="actions">
+          <div class="actions-left" aria-label="Dashboard totals">
+            <div class="metric" style="min-width: 220px">
+              <div class="label">Total Income</div>
+              <div class="value" id="totalIncome">$0</div>
+            </div>
+            <div class="metric" style="min-width: 220px">
+              <div class="label">Expense Budget</div>
+              <div class="value" id="expenseBudget">$0</div>
+            </div>
+            <div class="metric" style="min-width: 220px">
+              <div class="label">Total Spent</div>
+              <div class="value" id="totalSpent">$0</div>
+            </div>
+            <div class="metric" style="min-width: 220px">
+              <div class="label">Net Cash Flow</div>
+              <div class="value" id="netCashFlow">$0</div>
+            </div>
+            <div class="metric" style="min-width: 160px">
+              <div class="label">Paydays</div>
+              <div class="value" id="paydayCount">0</div>
+            </div>
+          </div>
+
+          <div class="actions-right" aria-label="Data actions">
+            <a class="button secondary" href="./financial-database.html" style="text-decoration: none; display: inline-flex; align-items: center">
+              Property Database
+            </a>
+            <button class="button secondary" id="resetBudgetsBtn" type="button">Reset Budgets</button>
+            <button class="button primary" id="exportAllBtn" type="button">Export Backup (JSON)</button>
+            <span class="file-input">
+              <input id="importFile" type="file" accept="application/json" />
+              <label for="importFile" class="button secondary">Import Backup (JSON)</label>
+            </span>
+            <span class="save-indicator" id="saveIndicator" data-state="saved" title="Auto-save status">
+              <span class="dot" aria-hidden="true"></span>
+              <span id="saveText">Saved</span>
+            </span>
+          </div>
+        </div>
+      </section>
+
+      <main>
+        <div id="grid" class="grid" aria-label="Event cards"></div>
+        <div id="empty" class="empty" style="display: none">No events match the current filters.</div>
+      </main>
+    </div>
+
+    <script>
+      (function () {
+        "use strict";
+
+        const STORAGE_KEYS = {
+          calendarEvents: "familyCalendarEvents",
+          propertyDatabase: "propertyDatabase",
+          userPreferences: "userPreferences",
+        };
+
+        const YEAR = 2026;
+
+        const householdIncomeHeader = { annual: 250800, monthly: 20900 };
+        let storageAlertShown = false;
+
+        const defaultPropertyDatabase = {
+          graham2814: {
+            id: "graham2814",
+            address: "2814 Graham Blvd, Pittsburgh PA 15235",
+            propertyType: "Primary Residence",
+            ownership: ["Shaquala Swinton", "Donald Betts"],
+            lender: "loanDepot",
+            accountNumber: "4007165568",
+            loanType: "FHA Mortgage",
+            outstandingBalance: 286765.22,
+            interestRate: 2.9,
+            monthlyPayment: { total: 2434.96, principal: 609.99, interest: 713.01, escrow: 1111.96 },
+            currentAmountDue: 5007.91,
+            regularPayment: 2434.96,
+            lateCharge: 52.92,
+            pastDue: 49.81,
+            dueDate: 1,
+            nextPaymentDue: "2026-01-01",
+            pmiYTD: 2427.72,
+            taxesYTD: 8955.25,
+            hazardInsuranceYTD: 1348.0,
+            recentPayments: [
+              { date: "2025-12-16", type: "Late Notice", amount: 0, lateFee: 52.92, status: "Late Notice Sent" },
+              { date: "2025-11-08", type: "Mortgage Insurance", principal: 0, interest: 0, escrow: 202.31, total: 202.31, status: "Paid" },
+              { date: "2025-10-07", type: "Mortgage Insurance", principal: 0, interest: 0, escrow: 202.31, total: 202.31, status: "Paid" },
+            ],
+            status: "Late",
+          },
+          onyx311: {
+            id: "onyx311",
+            address: "311 Onyx Ave, Pittsburgh PA 15210",
+            propertyType: "Investment Property",
+            ownership: ["Shaquala Swinton", "Sister (Name TBD)"],
+            lender: "loanDepot",
+            accountNumber: "4008047641",
+            loanType: "Conventional Loan",
+            outstandingBalance: 31380.78,
+            interestRate: 5.0,
+            monthlyPayment: { total: 522.18, principal: 185.17, interest: 130.75, escrow: 206.26 },
+            currentAmountDue: 522.18,
+            lateCharge: 0.0,
+            dueDate: 1,
+            nextPaymentDue: "2026-01-01",
+            pmiYTD: 255.72,
+            taxesYTD: 1180.35,
+            hazardInsuranceYTD: 871.0,
+            rentalIncome: { sisterContribution: 650.0, frequency: "monthly", netCashFlow: 127.82 },
+            recentPayments: [
+              { date: "2025-12-16", type: "Mortgage Insurance", principal: 0, interest: 0, escrow: 21.31, total: 21.31, status: "Paid" },
+              { date: "2025-12-15", type: "Payment", principal: 183.98, interest: 131.94, escrow: 75.62, total: 291.54, status: "Paid" },
+              { date: "2025-11-15", type: "Payment", principal: 183.98, interest: 131.94, escrow: 75.62, total: 291.54, status: "Paid" },
+            ],
+            status: "Current",
+          },
+          s18th2101: {
+            id: "s18th2101",
+            address: "2101 S 18th Street, Pittsburgh PA",
+            propertyType: "Investment Property",
+            ownership: ["SDB Realty LLC"],
+            lender: "Clearview Federal Credit Union",
+            accountNumber: "0012161375-0000",
+            loanType: "Credit Union Loan",
+            outstandingBalance: 71415.16,
+            interestRate: 7.75,
+            dailyPeriodicRate: 0.021527,
+            monthlyPayment: { total: 754.98, principal: 599.95, interest: 155.03, escrow: 0.0 },
+            currentAmountDue: 807.78,
+            currentPayment: 754.98,
+            pastDuePayment: 49.81,
+            lateCharge: 0.0,
+            dueDate: 7,
+            nextPaymentDue: "2025-12-07",
+            autoPaymentScheduled: true,
+            autoPaymentDate: "2025-12-07",
+            maturityDate: "2034-11-07",
+            interestPaidYTD: 5843.23,
+            recentPayments: [
+              {
+                date: "2025-12-12",
+                type: "Payment ACH CLEARVIEW FCU",
+                principal: 599.95,
+                interest: 155.03,
+                escrow: 0,
+                total: 754.98,
+                loanBalance: 71415.16,
+                status: "Paid",
+              },
+              {
+                date: "2025-12-02",
+                type: "Payment Transfer From Share 0010",
+                principal: 266.96,
+                interest: 437.77,
+                escrow: 0,
+                lateFee: 45.27,
+                total: 750.0,
+                loanBalance: 72015.11,
+                status: "Paid",
+              },
+              { date: "2025-11-18", type: "Beginning Balance", loanBalance: 72282.07 },
+            ],
+            status: "Current",
+          },
+        };
+
+        const ui = {
+          annualIncomeHeader: document.getElementById("annualIncomeHeader"),
+          monthlyIncomeHeader: document.getElementById("monthlyIncomeHeader"),
+          grid: document.getElementById("grid"),
+          empty: document.getElementById("empty"),
+          sortSelect: document.getElementById("sortSelect"),
+          filterSelect: document.getElementById("filterSelect"),
+          quarterSelect: document.getElementById("quarterSelect"),
+          searchInput: document.getElementById("searchInput"),
+          totalIncome: document.getElementById("totalIncome"),
+          expenseBudget: document.getElementById("expenseBudget"),
+          totalSpent: document.getElementById("totalSpent"),
+          netCashFlow: document.getElementById("netCashFlow"),
+          paydayCount: document.getElementById("paydayCount"),
+          saveIndicator: document.getElementById("saveIndicator"),
+          saveText: document.getElementById("saveText"),
+          exportAllBtn: document.getElementById("exportAllBtn"),
+          importFile: document.getElementById("importFile"),
+          resetBudgetsBtn: document.getElementById("resetBudgetsBtn"),
+        };
+
+        function formatMoney(amount) {
+          const n = typeof amount === "number" && Number.isFinite(amount) ? amount : 0;
+          return n.toLocaleString(undefined, { style: "currency", currency: "USD" });
+        }
+
+        function parseNonNegativeNumber(value) {
+          const n = Number(value);
+          if (!Number.isFinite(n)) return 0;
+          return Math.max(0, n);
+        }
+
+        function isISODateString(s) {
+          return typeof s === "string" && /^\d{4}-\d{2}-\d{2}$/.test(s);
+        }
+
+        function dateToISODateOnly(d) {
+          const y = d.getFullYear();
+          const m = String(d.getMonth() + 1).padStart(2, "0");
+          const day = String(d.getDate()).padStart(2, "0");
+          return `${y}-${m}-${day}`;
+        }
+
+        function isoToDateLocal(iso) {
+          // Treat ISO "YYYY-MM-DD" as local midnight to avoid timezone drift.
+          const [y, m, d] = iso.split("-").map((x) => Number(x));
+          return new Date(y, m - 1, d, 0, 0, 0, 0);
+        }
+
+        function quarterFromISO(iso) {
+          const month = isoToDateLocal(iso).getMonth() + 1;
+          if (month <= 3) return "q1";
+          if (month <= 6) return "q2";
+          if (month <= 9) return "q3";
+          return "q4";
+        }
+
+        function debounce(fn, ms) {
+          let t = null;
+          return function (...args) {
+            if (t) window.clearTimeout(t);
+            t = window.setTimeout(() => fn.apply(this, args), ms);
+          };
+        }
+
+        function safeJSONParse(s) {
+          try {
+            return JSON.parse(s);
+          } catch {
+            return null;
+          }
+        }
+
+        function setSaveState(state, text) {
+          ui.saveIndicator.dataset.state = state;
+          ui.saveText.textContent = text;
+        }
+
+        function safeLocalStorageSet(key, value) {
+          try {
+            localStorage.setItem(key, value);
+            return { ok: true };
+          } catch (e) {
+            console.error("Storage error:", e);
+            return { ok: false, error: e };
+          }
+        }
+
+        function getOrInitPropertyDatabase() {
+          const raw = localStorage.getItem(STORAGE_KEYS.propertyDatabase);
+          const parsed = raw ? safeJSONParse(raw) : null;
+          if (parsed && typeof parsed === "object") return parsed;
+          safeLocalStorageSet(STORAGE_KEYS.propertyDatabase, JSON.stringify(defaultPropertyDatabase));
+          return defaultPropertyDatabase;
+        }
+
+        function ensureUserPreferences() {
+          const raw = localStorage.getItem(STORAGE_KEYS.userPreferences);
+          const parsed = raw ? safeJSONParse(raw) : null;
+          if (parsed && typeof parsed === "object") return parsed;
+          const prefs = { defaultView: "calendar", defaultSort: "date", defaultFilter: "all" };
+          safeLocalStorageSet(STORAGE_KEYS.userPreferences, JSON.stringify(prefs));
+          return prefs;
+        }
+
+        function buildEventId(prefix, iso, suffix) {
+          return `${prefix}:${iso}:${suffix}`;
+        }
+
+        function generateBaseEvents(propertyDb) {
+          /** @type {Array<any>} */
+          const events = [];
+
+          // Birthdays
+          const birthdays = [
+            { person: "Donald Sr. (Dad)", event2026: "2026-01-15", age2026: 40 },
+            { person: "Shaquala (Mom)", event2026: "2026-03-16", age2026: 40 },
+            { person: "Donald Jr. (Webbes/Man)", event2026: "2026-04-11", age2026: 5 },
+            { person: "Donte", event2026: "2026-04-26", age2026: 17 },
+            { person: "Nova", event2026: "2026-07-02", age2026: 4 },
+            { person: "Tarai", event2026: "2026-08-22", age2026: 10 },
+          ];
+          for (const b of birthdays) {
+            events.push({
+              id: buildEventId("birthday", b.event2026, b.person),
+              dateISO: b.event2026,
+              title: `${b.person} Birthday`,
+              details: `Turns ${b.age2026} in ${YEAR}.`,
+              person: b.person,
+              type: "birthday",
+              quarter: quarterFromISO(b.event2026),
+              budget: 0,
+              actualSpent: 0,
+              isIncome: false,
+            });
+          }
+
+          // Holidays
+          const holidays = [
+            { name: "New Year's Day", date: "2026-01-01" },
+            { name: "Thanksgiving", date: "2026-11-26" },
+            { name: "Christmas", date: "2026-12-25" },
+          ];
+          for (const h of holidays) {
+            events.push({
+              id: buildEventId("holiday", h.date, h.name),
+              dateISO: h.date,
+              title: h.name,
+              details: "Holiday planning and spending.",
+              person: "",
+              type: "holiday",
+              quarter: quarterFromISO(h.date),
+              budget: 0,
+              actualSpent: 0,
+              isIncome: false,
+            });
+          }
+
+          // Vacation (single financial event; includes details for dates)
+          const vacation = {
+            destination: "Fort Lauderdale, FL & Bahamas Cruise",
+            dates: { departure: "2026-04-26", return: "2026-05-02" },
+            flights: {
+              outbound: { date: "2026-04-26", airline: "Spirit Airlines", flightNumber: "NK884", route: "PIT → FLL", departure: "6:00 AM", arrival: "9:00 AM", confirmationNumber: "LMMFRW" },
+              return: { date: "2026-05-02", airline: "Spirit Airlines", flightNumber: "NK889", route: "FLL → PIT", departure: "8:59 PM", arrival: "11:42 PM", confirmationNumber: "LMMFRW" },
+            },
+            cruise: { cruiseLine: "Royal Caribbean", duration: "4 days", destination: "Bahamas", departurePort: "Miami, FL", departureDate: "2026-04-27", returnDate: "2026-05-01", reservationNumber: "63460349", stateroom: "14212", passenger: "Donald Betts" },
+          };
+          events.push({
+            id: buildEventId("vacation", vacation.dates.departure, "vacation2026"),
+            dateISO: vacation.dates.departure,
+            title: "Vacation (Fort Lauderdale & Bahamas Cruise)",
+            details:
+              `Trip window: ${vacation.dates.departure} to ${vacation.dates.return}. ` +
+              `Outbound: ${vacation.flights.outbound.airline} ${vacation.flights.outbound.flightNumber} ${vacation.flights.outbound.route} (${vacation.flights.outbound.departure}–${vacation.flights.outbound.arrival}). ` +
+              `Cruise: ${vacation.cruise.cruiseLine} (${vacation.cruise.departureDate}–${vacation.cruise.returnDate}), reservation ${vacation.cruise.reservationNumber}. ` +
+              `Return: ${vacation.flights.return.airline} ${vacation.flights.return.flightNumber} ${vacation.flights.return.route} (${vacation.flights.return.departure}–${vacation.flights.return.arrival}).`,
+            person: "Family",
+            type: "vacation",
+            quarter: quarterFromISO(vacation.dates.departure),
+            budget: 0,
+            actualSpent: 0,
+            isIncome: false,
+          });
+
+          // Shaquala paydays (bi-monthly list provided)
+          const shaqualaPaydays = [
+            "2026-01-15",
+            "2026-01-31",
+            "2026-02-13",
+            "2026-02-27",
+            "2026-03-13",
+            "2026-03-31",
+            "2026-04-15",
+            "2026-04-30",
+            "2026-05-15",
+            "2026-05-29",
+            "2026-06-15",
+            "2026-06-30",
+            "2026-07-15",
+            "2026-07-31",
+            "2026-08-14",
+            "2026-08-31",
+            "2026-09-15",
+            "2026-09-30",
+            "2026-10-15",
+            "2026-10-30",
+            "2026-11-13",
+            "2026-11-30",
+            "2026-12-15",
+            "2026-12-31",
+          ];
+          for (const iso of shaqualaPaydays) {
+            events.push({
+              id: buildEventId("payday", iso, "shaquala"),
+              dateISO: iso,
+              title: "Payday (Shaquala)",
+              details: "Bi-monthly paycheck (15th and last day of month; adjusts for weekends).",
+              person: "Shaquala Swinton",
+              type: "payday",
+              quarter: quarterFromISO(iso),
+              expectedAmount: 6666.67,
+              actualAmount: 0,
+              isIncome: true,
+            });
+          }
+
+          // Donald paydays (bi-weekly list provided)
+          const donaldPaydays = [
+            "2026-01-02",
+            "2026-01-16",
+            "2026-01-30",
+            "2026-02-13",
+            "2026-02-27",
+            "2026-03-13",
+            "2026-03-27",
+            "2026-04-10",
+            "2026-04-24",
+            "2026-05-08",
+            "2026-05-22",
+            "2026-06-05",
+            "2026-06-19",
+            "2026-07-03",
+            "2026-07-17",
+            "2026-07-31",
+            "2026-08-14",
+            "2026-08-28",
+            "2026-09-11",
+            "2026-09-25",
+            "2026-10-09",
+            "2026-10-23",
+            "2026-11-06",
+            "2026-11-20",
+            "2026-12-04",
+            "2026-12-18",
+          ];
+          for (const iso of donaldPaydays) {
+            events.push({
+              id: buildEventId("payday", iso, "donald"),
+              dateISO: iso,
+              title: "Payday (Donald)",
+              details: "Bi-weekly paycheck.",
+              person: "Donald Betts",
+              type: "payday",
+              quarter: quarterFromISO(iso),
+              expectedAmount: 2615.38,
+              actualAmount: 0,
+              isIncome: true,
+            });
+          }
+
+          // Bonus
+          events.push({
+            id: buildEventId("bonus", "2026-03-15", "shaquala"),
+            dateISO: "2026-03-15",
+            title: "Bonus (Shaquala)",
+            details: "Annual bonus expected in March.",
+            person: "Shaquala Swinton",
+            type: "income-bonus",
+            quarter: quarterFromISO("2026-03-15"),
+            expectedAmount: 15000,
+            actualAmount: 0,
+            isIncome: true,
+          });
+
+          // Sister rental income: monthly on 1st
+          for (let month = 1; month <= 12; month++) {
+            const iso = `${YEAR}-${String(month).padStart(2, "0")}-01`;
+            events.push({
+              id: buildEventId("rental-income", iso, "sister311onyx"),
+              dateISO: iso,
+              title: "Sister Payment (311 Onyx)",
+              details: "Monthly rental contribution for 311 Onyx Ave.",
+              person: "Sister (311 Onyx)",
+              type: "rental-income",
+              quarter: quarterFromISO(iso),
+              expectedAmount: 650,
+              actualAmount: 0,
+              isIncome: true,
+            });
+          }
+
+          // Mortgage payments (1st for Graham/Onyx, 7th for S 18th)
+          const mortgageDefs = [
+            { propertyId: "graham2814", title: "Mortgage Payment (2814 Graham)", dueDay: propertyDb.graham2814?.dueDate ?? 1 },
+            { propertyId: "onyx311", title: "Mortgage Payment (311 Onyx)", dueDay: propertyDb.onyx311?.dueDate ?? 1 },
+            { propertyId: "s18th2101", title: "Mortgage Payment (2101 S 18th)", dueDay: propertyDb.s18th2101?.dueDate ?? 7 },
+          ];
+          for (const def of mortgageDefs) {
+            for (let month = 1; month <= 12; month++) {
+              const iso = `${YEAR}-${String(month).padStart(2, "0")}-${String(def.dueDay).padStart(2, "0")}`;
+              const prop = propertyDb[def.propertyId];
+              const acct = prop?.accountNumber ? `Account ${prop.accountNumber}` : "Account on file";
+              const autoPay = prop?.autoPaymentScheduled ? "Auto-pay noted." : "";
+              const paymentAmt = prop?.monthlyPayment?.total ?? 0;
+              events.push({
+                id: buildEventId("mortgage", iso, def.propertyId),
+                dateISO: iso,
+                title: def.title,
+                details: `${acct}. Expected payment ${formatMoney(paymentAmt)}. ${autoPay}`.trim(),
+                person: "",
+                type: "mortgage-payment",
+                quarter: quarterFromISO(iso),
+                budget: paymentAmt,
+                actualSpent: 0,
+                isIncome: false,
+                propertyId: def.propertyId,
+                accountNumber: prop?.accountNumber ?? "",
+              });
+            }
+          }
+
+          // Normalize and sort by date
+          for (const e of events) {
+            if (!isISODateString(e.dateISO)) {
+              throw new Error(`Invalid date on event: ${e.id}`);
+            }
+            e.quarter = e.quarter || quarterFromISO(e.dateISO);
+          }
+
+          events.sort((a, b) => isoToDateLocal(a.dateISO) - isoToDateLocal(b.dateISO));
+          return events;
+        }
+
+        function mergeUserDataIntoBaseEvents(baseEvents, existingEvents) {
+          const oldById = new Map(existingEvents.map((e) => [e.id, e]));
+          const oldMortgageByMonth = new Map(
+            existingEvents
+              .filter((e) => e && e.type === "mortgage-payment" && e.propertyId && isISODateString(e.dateISO))
+              .map((e) => [`${e.propertyId}:${e.dateISO.slice(0, 7)}`, e])
+          );
+          const oldRentalByMonth = new Map(
+            existingEvents
+              .filter((e) => e && e.type === "rental-income" && isISODateString(e.dateISO))
+              .map((e) => [`${e.dateISO.slice(0, 7)}`, e])
+          );
+
+          return baseEvents.map((e) => {
+            const prev = oldById.get(e.id);
+            if (prev) {
+              if (e.isIncome) {
+                return { ...e, actualAmount: parseNonNegativeNumber(prev.actualAmount || 0) };
+              }
+              return {
+                ...e,
+                budget: "budget" in prev ? parseNonNegativeNumber(prev.budget) : parseNonNegativeNumber(e.budget || 0),
+                actualSpent: parseNonNegativeNumber(prev.actualSpent || 0),
+              };
+            }
+
+            // If event IDs changed (e.g., due date changed), preserve month-based user entries where possible.
+            if (e.type === "mortgage-payment" && e.propertyId) {
+              const key = `${e.propertyId}:${e.dateISO.slice(0, 7)}`;
+              const prevM = oldMortgageByMonth.get(key);
+              if (prevM) {
+                return {
+                  ...e,
+                  budget: "budget" in prevM ? parseNonNegativeNumber(prevM.budget) : parseNonNegativeNumber(e.budget || 0),
+                  actualSpent: parseNonNegativeNumber(prevM.actualSpent || 0),
+                };
+              }
+            }
+
+            if (e.type === "rental-income") {
+              const prevR = oldRentalByMonth.get(e.dateISO.slice(0, 7));
+              if (prevR) {
+                return { ...e, actualAmount: parseNonNegativeNumber(prevR.actualAmount || 0) };
+              }
+            }
+
+            return e;
+          });
+        }
+
+        function loadEvents(propertyDb) {
+          const raw = localStorage.getItem(STORAGE_KEYS.calendarEvents);
+          const parsed = raw ? safeJSONParse(raw) : null;
+          if (Array.isArray(parsed) && parsed.length > 0) {
+            // Light validation: ensure ids exist and dates are ISO.
+            const looksValid = parsed.every((e) => e && typeof e === "object" && typeof e.id === "string" && isISODateString(e.dateISO));
+            if (looksValid) {
+              // Always re-sync derived items (mortgage schedule/details) from property database while preserving user-entered fields.
+              const base = generateBaseEvents(propertyDb);
+              const merged = mergeUserDataIntoBaseEvents(base, parsed);
+              safeLocalStorageSet(STORAGE_KEYS.calendarEvents, JSON.stringify(merged));
+              return merged;
+            }
+          }
+          const base = generateBaseEvents(propertyDb);
+          safeLocalStorageSet(STORAGE_KEYS.calendarEvents, JSON.stringify(base));
+          return base;
+        }
+
+        function saveEvents(events) {
+          setSaveState("saving", "Saving…");
+          const res = safeLocalStorageSet(STORAGE_KEYS.calendarEvents, JSON.stringify(events));
+          if (res.ok) setSaveState("saved", "Saved");
+          else {
+            setSaveState("error", "Save failed");
+            if (!storageAlertShown) {
+              storageAlertShown = true;
+              alert("Unable to save data. Storage may be full.");
+            }
+          }
+        }
+
+        const saveEventsDebounced = debounce(saveEvents, 300);
+
+        function getTypeLabel(type) {
+          switch (type) {
+            case "birthday":
+              return "Birthday";
+            case "holiday":
+              return "Holiday";
+            case "vacation":
+              return "Vacation";
+            case "income-bonus":
+              return "Bonus";
+            case "payday":
+              return "Payday";
+            case "rental-income":
+              return "Rental Income";
+            case "mortgage-payment":
+              return "Mortgage";
+            default:
+              return "Event";
+          }
+        }
+
+        function applyFilter(events, filterValue, quarterValue, searchValue) {
+          const q = String(quarterValue || "all");
+          const f = String(filterValue || "all");
+          const s = String(searchValue || "").trim().toLowerCase();
+
+          return events.filter((e) => {
+            if (q !== "all" && e.quarter !== q) return false;
+
+            if (s) {
+              const hay = `${e.title || ""} ${e.person || ""} ${e.details || ""}`.toLowerCase();
+              if (!hay.includes(s)) return false;
+            }
+
+            if (f === "all") return true;
+            if (f === "birthdays") return e.type === "birthday";
+            if (f === "holidays") return e.type === "holiday";
+            if (f === "vacation") return e.type === "vacation";
+            if (f === "mortgage") return e.type === "mortgage-payment";
+            if (f === "sister") return e.type === "rental-income";
+            if (f === "bonus") return e.type === "income-bonus";
+            if (f === "paydays") return e.type === "payday";
+            if (f === "expensesOnly") return !e.isIncome;
+            if (f === "incomeOnly") return !!e.isIncome;
+            return true;
+          });
+        }
+
+        function applySort(events, sortValue) {
+          const s = String(sortValue || "date");
+          const copy = events.slice();
+          if (s === "date") {
+            copy.sort((a, b) => isoToDateLocal(a.dateISO) - isoToDateLocal(b.dateISO));
+            return copy;
+          }
+          if (s === "type") {
+            copy.sort((a, b) => {
+              const ta = getTypeLabel(a.type).localeCompare(getTypeLabel(b.type));
+              if (ta !== 0) return ta;
+              return isoToDateLocal(a.dateISO) - isoToDateLocal(b.dateISO);
+            });
+            return copy;
+          }
+          if (s === "person") {
+            copy.sort((a, b) => {
+              const pa = (a.person || "").localeCompare(b.person || "");
+              if (pa !== 0) return pa;
+              return isoToDateLocal(a.dateISO) - isoToDateLocal(b.dateISO);
+            });
+            return copy;
+          }
+          if (s === "quarter") {
+            const order = { q1: 1, q2: 2, q3: 3, q4: 4 };
+            copy.sort((a, b) => {
+              const qa = order[a.quarter] || 99;
+              const qb = order[b.quarter] || 99;
+              if (qa !== qb) return qa - qb;
+              return isoToDateLocal(a.dateISO) - isoToDateLocal(b.dateISO);
+            });
+            return copy;
+          }
+          return copy;
+        }
+
+        function computeDashboardTotals(displayEvents) {
+          let incomeTotal = 0;
+          let expenseBudget = 0;
+          let totalSpent = 0;
+          let paydays = 0;
+
+          for (const e of displayEvents) {
+            if (e.type === "payday") paydays += 1;
+            if (e.isIncome) {
+              const actual = parseNonNegativeNumber(e.actualAmount || 0);
+              const expected = parseNonNegativeNumber(e.expectedAmount || 0);
+              incomeTotal += actual > 0 ? actual : expected;
+            } else {
+              expenseBudget += parseNonNegativeNumber(e.budget || 0);
+              totalSpent += parseNonNegativeNumber(e.actualSpent || 0);
+            }
+          }
+
+          return { incomeTotal, expenseBudget, totalSpent, netCashFlow: incomeTotal - totalSpent, paydays };
+        }
+
+        function render(eventsAll, displayEvents, propertyDb) {
+          // Header income is simplified by spec (only totals).
+          ui.annualIncomeHeader.textContent = formatMoney(householdIncomeHeader.annual);
+          ui.monthlyIncomeHeader.textContent = formatMoney(householdIncomeHeader.monthly);
+
+          const totals = computeDashboardTotals(displayEvents);
+          ui.totalIncome.textContent = formatMoney(totals.incomeTotal);
+          ui.expenseBudget.textContent = formatMoney(totals.expenseBudget);
+          ui.totalSpent.textContent = formatMoney(totals.totalSpent);
+          ui.netCashFlow.textContent = formatMoney(totals.netCashFlow);
+          ui.paydayCount.textContent = String(totals.paydays);
+
+          ui.grid.innerHTML = "";
+          ui.empty.style.display = displayEvents.length === 0 ? "block" : "none";
+
+          const fragment = document.createDocumentFragment();
+          for (const e of displayEvents) {
+            const card = document.createElement("section");
+            card.className = `card type-${e.quarter}`;
+
+            const head = document.createElement("div");
+            head.className = "card-head";
+
+            const titleWrap = document.createElement("div");
+            titleWrap.className = "card-title";
+
+            const dateEl = document.createElement("div");
+            dateEl.className = "date";
+            dateEl.textContent = e.dateISO;
+
+            const h = document.createElement("h3");
+            h.className = "title-line";
+            h.textContent = e.title || "Event";
+
+            const det = document.createElement("p");
+            det.className = "details";
+            det.textContent = e.details || "";
+
+            titleWrap.appendChild(dateEl);
+            titleWrap.appendChild(h);
+            titleWrap.appendChild(det);
+
+            const badges = document.createElement("div");
+            badges.className = "badge-row";
+
+            const typeBadge = document.createElement("span");
+            typeBadge.className = `badge type-${e.type}`;
+            typeBadge.textContent = getTypeLabel(e.type);
+
+            const qBadge = document.createElement("span");
+            qBadge.className = "badge quarter";
+            qBadge.textContent = e.quarter.toUpperCase();
+
+            badges.appendChild(typeBadge);
+            badges.appendChild(qBadge);
+
+            head.appendChild(titleWrap);
+            head.appendChild(badges);
+
+            card.appendChild(head);
+
+            // Optional link for mortgage events to property database
+            if (e.type === "mortgage-payment" && e.propertyId && propertyDb[e.propertyId]) {
+              const linkRow = document.createElement("div");
+              linkRow.className = "helper-row";
+              const helper = document.createElement("div");
+              helper.className = "helper";
+              helper.innerHTML = `Property: <strong>${propertyDb[e.propertyId].address}</strong>`;
+
+              const a = document.createElement("a");
+              a.className = "link";
+              a.href = `./financial-database.html#property=${encodeURIComponent(e.propertyId)}`;
+              a.textContent = "View details";
+
+              linkRow.appendChild(helper);
+              linkRow.appendChild(a);
+              card.appendChild(linkRow);
+            }
+
+            const inputs = document.createElement("div");
+            inputs.className = `inputs ${e.isIncome ? "one-col" : ""}`;
+
+            if (e.isIncome) {
+              const expectedField = document.createElement("div");
+              expectedField.className = "field";
+              const expectedLabel = document.createElement("label");
+              expectedLabel.textContent = "Expected Amount";
+              const expectedInput = document.createElement("input");
+              expectedInput.type = "text";
+              expectedInput.value = formatMoney(parseNonNegativeNumber(e.expectedAmount || 0));
+              expectedInput.disabled = true;
+              expectedInput.setAttribute("aria-disabled", "true");
+              expectedField.appendChild(expectedLabel);
+              expectedField.appendChild(expectedInput);
+
+              const actualField = document.createElement("div");
+              actualField.className = "field";
+              const actualLabel = document.createElement("label");
+              actualLabel.textContent = "Actual Amount";
+              const actualInput = document.createElement("input");
+              actualInput.type = "number";
+              actualInput.min = "0";
+              actualInput.step = "0.01";
+              actualInput.value = String(parseNonNegativeNumber(e.actualAmount || 0));
+              actualInput.addEventListener("input", () => {
+                const v = parseNonNegativeNumber(actualInput.value);
+                actualInput.value = String(v);
+                updateEventAmount(eventsAll, e.id, { actualAmount: v });
+              });
+              actualField.appendChild(actualLabel);
+              actualField.appendChild(actualInput);
+
+              inputs.appendChild(expectedField);
+              inputs.appendChild(actualField);
+
+              const helperRow = document.createElement("div");
+              helperRow.className = "helper-row";
+              const expected = parseNonNegativeNumber(e.expectedAmount || 0);
+              const actual = parseNonNegativeNumber(e.actualAmount || 0);
+              const basis = actual > 0 ? actual : expected;
+              const variance = actual > 0 ? actual - expected : 0;
+              const helper = document.createElement("div");
+              helper.className = "helper";
+              helper.innerHTML =
+                `Counted Income: <strong>${formatMoney(basis)}</strong>` +
+                (actual > 0 ? ` · Variance: <strong>${formatMoney(variance)}</strong>` : "");
+              helperRow.appendChild(helper);
+              card.appendChild(inputs);
+              card.appendChild(helperRow);
+            } else {
+              const budgetField = document.createElement("div");
+              budgetField.className = "field";
+              const budgetLabel = document.createElement("label");
+              budgetLabel.textContent = "Budget";
+              const budgetInput = document.createElement("input");
+              budgetInput.type = "number";
+              budgetInput.min = "0";
+              budgetInput.step = "0.01";
+              budgetInput.value = String(parseNonNegativeNumber(e.budget || 0));
+              budgetInput.addEventListener("input", () => {
+                const v = parseNonNegativeNumber(budgetInput.value);
+                budgetInput.value = String(v);
+                updateEventAmount(eventsAll, e.id, { budget: v });
+              });
+              budgetField.appendChild(budgetLabel);
+              budgetField.appendChild(budgetInput);
+
+              const spentField = document.createElement("div");
+              spentField.className = "field";
+              const spentLabel = document.createElement("label");
+              spentLabel.textContent = "Actual Spent";
+              const spentInput = document.createElement("input");
+              spentInput.type = "number";
+              spentInput.min = "0";
+              spentInput.step = "0.01";
+              spentInput.value = String(parseNonNegativeNumber(e.actualSpent || 0));
+              spentInput.addEventListener("input", () => {
+                const v = parseNonNegativeNumber(spentInput.value);
+                spentInput.value = String(v);
+                updateEventAmount(eventsAll, e.id, { actualSpent: v });
+              });
+              spentField.appendChild(spentLabel);
+              spentField.appendChild(spentInput);
+
+              inputs.appendChild(budgetField);
+              inputs.appendChild(spentField);
+
+              const remaining = Math.max(0, parseNonNegativeNumber(e.budget || 0) - parseNonNegativeNumber(e.actualSpent || 0));
+              const pct = (() => {
+                const b = parseNonNegativeNumber(e.budget || 0);
+                if (b <= 0) return 0;
+                const a = parseNonNegativeNumber(e.actualSpent || 0);
+                return Math.min(100, (a / b) * 100);
+              })();
+
+              const helperRow = document.createElement("div");
+              helperRow.className = "helper-row";
+              const helper = document.createElement("div");
+              helper.className = "helper";
+              helper.innerHTML = `Remaining: <strong>${formatMoney(remaining)}</strong> · Progress: <strong>${pct.toFixed(0)}%</strong>`;
+              helperRow.appendChild(helper);
+
+              const progress = document.createElement("div");
+              progress.className = "progress";
+              const fill = document.createElement("div");
+              fill.style.width = `${pct}%`;
+              progress.appendChild(fill);
+
+              card.appendChild(inputs);
+              card.appendChild(helperRow);
+              card.appendChild(progress);
+            }
+
+            fragment.appendChild(card);
+          }
+
+          ui.grid.appendChild(fragment);
+        }
+
+        function updateEventAmount(allEvents, eventId, patch) {
+          const idx = allEvents.findIndex((e) => e.id === eventId);
+          if (idx === -1) return;
+
+          const next = { ...allEvents[idx] };
+          if ("budget" in patch) next.budget = parseNonNegativeNumber(patch.budget);
+          if ("actualSpent" in patch) next.actualSpent = parseNonNegativeNumber(patch.actualSpent);
+          if ("actualAmount" in patch) next.actualAmount = parseNonNegativeNumber(patch.actualAmount);
+          allEvents[idx] = next;
+
+          saveEventsDebounced(allEvents);
+          refresh();
+        }
+
+        let propertyDb = null;
+        let eventsAll = [];
+
+        function refresh() {
+          const filtered = applyFilter(eventsAll, ui.filterSelect.value, ui.quarterSelect.value, ui.searchInput.value);
+          const sorted = applySort(filtered, ui.sortSelect.value);
+          render(eventsAll, sorted, propertyDb);
+          // Also persist preferences.
+          const prefs = {
+            defaultView: "calendar",
+            defaultSort: ui.sortSelect.value,
+            defaultFilter: ui.filterSelect.value,
+            defaultQuarter: ui.quarterSelect.value,
+          };
+          safeLocalStorageSet(STORAGE_KEYS.userPreferences, JSON.stringify(prefs));
+        }
+
+        function exportBackup() {
+          const payload = {
+            exportedAt: new Date().toISOString(),
+            year: YEAR,
+            familyCalendarEvents: eventsAll,
+            propertyDatabase: propertyDb,
+            userPreferences: safeJSONParse(localStorage.getItem(STORAGE_KEYS.userPreferences) || "{}") || {},
+          };
+          const blob = new Blob([JSON.stringify(payload, null, 2)], { type: "application/json" });
+          const url = URL.createObjectURL(blob);
+          const a = document.createElement("a");
+          a.href = url;
+          a.download = `betts-family-backup-${YEAR}.json`;
+          document.body.appendChild(a);
+          a.click();
+          a.remove();
+          URL.revokeObjectURL(url);
+        }
+
+        async function importBackup(file) {
+          const text = await file.text();
+          const payload = safeJSONParse(text);
+          if (!payload || typeof payload !== "object") {
+            alert("Import failed: invalid JSON.");
+            return;
+          }
+
+          if (!Array.isArray(payload.familyCalendarEvents)) {
+            alert("Import failed: missing familyCalendarEvents array.");
+            return;
+          }
+          if (!payload.propertyDatabase || typeof payload.propertyDatabase !== "object") {
+            alert("Import failed: missing propertyDatabase object.");
+            return;
+          }
+
+          // Validate minimal fields
+          const looksValid = payload.familyCalendarEvents.every(
+            (e) => e && typeof e === "object" && typeof e.id === "string" && isISODateString(e.dateISO) && typeof e.type === "string"
+          );
+          if (!looksValid) {
+            alert("Import failed: events are not in the expected format.");
+            return;
+          }
+
+          const set1 = safeLocalStorageSet(STORAGE_KEYS.calendarEvents, JSON.stringify(payload.familyCalendarEvents));
+          const set2 = safeLocalStorageSet(STORAGE_KEYS.propertyDatabase, JSON.stringify(payload.propertyDatabase));
+          const set3 = safeLocalStorageSet(STORAGE_KEYS.userPreferences, JSON.stringify(payload.userPreferences || {}));
+          if (!set1.ok || !set2.ok || !set3.ok) {
+            alert("Import failed: unable to save. Storage may be full.");
+            return;
+          }
+
+          propertyDb = payload.propertyDatabase;
+          eventsAll = payload.familyCalendarEvents;
+          setSaveState("saved", "Saved");
+          refresh();
+        }
+
+        function resetBudgets() {
+          const ok = confirm("Reset all budgets and actual amounts to 0? This cannot be undone.");
+          if (!ok) return;
+          eventsAll = eventsAll.map((e) => {
+            if (e.isIncome) return { ...e, actualAmount: 0 };
+            return { ...e, budget: e.type === "mortgage-payment" ? parseNonNegativeNumber(e.budget || 0) : 0, actualSpent: 0 };
+          });
+          saveEvents(eventsAll);
+          refresh();
+        }
+
+        function init() {
+          propertyDb = getOrInitPropertyDatabase();
+          ensureUserPreferences();
+
+          eventsAll = loadEvents(propertyDb);
+
+          const prefs = safeJSONParse(localStorage.getItem(STORAGE_KEYS.userPreferences) || "{}") || {};
+          if (prefs.defaultSort) ui.sortSelect.value = prefs.defaultSort;
+          if (prefs.defaultFilter) ui.filterSelect.value = prefs.defaultFilter;
+          if (prefs.defaultQuarter) ui.quarterSelect.value = prefs.defaultQuarter;
+
+          ui.sortSelect.addEventListener("change", refresh);
+          ui.filterSelect.addEventListener("change", refresh);
+          ui.quarterSelect.addEventListener("change", refresh);
+          ui.searchInput.addEventListener("input", debounce(refresh, 150));
+          ui.exportAllBtn.addEventListener("click", exportBackup);
+          ui.importFile.addEventListener("change", async () => {
+            const f = ui.importFile.files && ui.importFile.files[0];
+            ui.importFile.value = "";
+            if (!f) return;
+            await importBackup(f);
+          });
+          ui.resetBudgetsBtn.addEventListener("click", resetBudgets);
+
+          refresh();
+        }
+
+        init();
+      })();
+    </script>
+  </body>
+</html>

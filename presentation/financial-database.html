@@ -1,0 +1,1003 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Betts Family Property & Mortgage Database</title>
+    <style>
+      :root {
+        /* Primary Colors */
+        --primary-blue: #1e3a8a;
+        --primary-blue-light: #3b82f6;
+
+        /* Background Colors */
+        --bg-main: #f5f7fa;
+        --bg-card: #ffffff;
+        --bg-secondary: #fafbfc;
+
+        /* Text Colors */
+        --text-primary: #111827;
+        --text-secondary: #6b7280;
+        --text-tertiary: #9ca3af;
+
+        /* Semantic Colors */
+        --success: #059669;
+        --error: #dc2626;
+        --warning: #f59e0b;
+        --info: #2563eb;
+
+        /* Typography */
+        font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Inter", "Roboto", sans-serif;
+        --text-xs: 0.75rem;
+        --text-sm: 0.875rem;
+        --text-base: 1rem;
+        --text-lg: 1.125rem;
+        --text-xl: 1.25rem;
+        --text-2xl: 1.5rem;
+        --text-3xl: 2rem;
+        --text-4xl: 2.5rem;
+        --font-normal: 400;
+        --font-medium: 500;
+        --font-semibold: 600;
+        --font-bold: 700;
+
+        /* Spacing */
+        --space-1: 0.25rem;
+        --space-2: 0.5rem;
+        --space-3: 0.75rem;
+        --space-4: 1rem;
+        --space-5: 1.25rem;
+        --space-6: 1.5rem;
+        --space-8: 2rem;
+        --space-10: 2.5rem;
+
+        /* Radius */
+        --radius-sm: 6px;
+        --radius-md: 8px;
+        --radius-lg: 12px;
+
+        /* Shadows */
+        --shadow-sm: 0 1px 2px rgba(16, 24, 40, 0.08);
+        --shadow-md: 0 6px 20px rgba(16, 24, 40, 0.10);
+      }
+
+      * {
+        box-sizing: border-box;
+      }
+
+      body {
+        margin: 0;
+        background: var(--bg-main);
+        color: var(--text-primary);
+      }
+
+      .container {
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: var(--space-8) var(--space-4);
+      }
+
+      header {
+        display: flex;
+        gap: var(--space-6);
+        align-items: flex-start;
+        justify-content: space-between;
+        flex-wrap: wrap;
+        margin-bottom: var(--space-6);
+      }
+
+      .title h1 {
+        font-size: var(--text-3xl);
+        margin: 0;
+        letter-spacing: -0.02em;
+      }
+
+      .subtitle {
+        color: var(--text-secondary);
+        font-size: var(--text-sm);
+        margin-top: var(--space-2);
+        max-width: 780px;
+      }
+
+      .header-actions {
+        display: inline-flex;
+        gap: var(--space-3);
+        align-items: center;
+        flex-wrap: wrap;
+      }
+
+      .button {
+        border: none;
+        cursor: pointer;
+        padding: 10px 14px;
+        border-radius: var(--radius-md);
+        font-size: var(--text-sm);
+        font-weight: var(--font-semibold);
+        transition: transform 80ms ease, filter 120ms ease;
+        user-select: none;
+        text-decoration: none;
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        white-space: nowrap;
+      }
+
+      .button.primary {
+        color: #fff;
+        background: linear-gradient(180deg, var(--primary-blue-light), var(--primary-blue));
+      }
+
+      .button.secondary {
+        color: var(--text-primary);
+        background: #fff;
+        border: 1px solid rgba(17, 24, 39, 0.14);
+      }
+
+      .button:hover {
+        filter: brightness(0.98);
+      }
+
+      .button:active {
+        transform: scale(0.98);
+      }
+
+      .save-indicator {
+        font-size: var(--text-sm);
+        color: var(--text-secondary);
+        display: inline-flex;
+        gap: var(--space-2);
+        align-items: center;
+      }
+
+      .save-indicator .dot {
+        width: 8px;
+        height: 8px;
+        border-radius: 999px;
+        background: var(--text-tertiary);
+      }
+
+      .save-indicator[data-state="saving"] .dot {
+        background: var(--warning);
+      }
+      .save-indicator[data-state="saved"] .dot {
+        background: var(--success);
+      }
+      .save-indicator[data-state="error"] .dot {
+        background: var(--error);
+      }
+
+      .tabs {
+        display: flex;
+        gap: var(--space-2);
+        flex-wrap: wrap;
+        padding: var(--space-2);
+        background: var(--bg-card);
+        border: 1px solid rgba(17, 24, 39, 0.08);
+        border-radius: var(--radius-lg);
+        box-shadow: var(--shadow-sm);
+        margin-bottom: var(--space-6);
+      }
+
+      .tab {
+        appearance: none;
+        border: 1px solid transparent;
+        background: transparent;
+        padding: 10px 12px;
+        border-radius: var(--radius-md);
+        font-weight: var(--font-semibold);
+        font-size: var(--text-sm);
+        color: var(--text-secondary);
+        cursor: pointer;
+      }
+
+      .tab[aria-selected="true"] {
+        color: var(--text-primary);
+        background: rgba(59, 130, 246, 0.10);
+        border-color: rgba(59, 130, 246, 0.18);
+      }
+
+      .panel {
+        display: none;
+      }
+      .panel.active {
+        display: block;
+      }
+
+      .grid {
+        display: grid;
+        grid-template-columns: 1fr;
+        gap: var(--space-4);
+      }
+
+      @media (min-width: 768px) {
+        .grid.two {
+          grid-template-columns: repeat(2, minmax(0, 1fr));
+        }
+        .grid.three {
+          grid-template-columns: repeat(3, minmax(0, 1fr));
+        }
+      }
+
+      .card {
+        background: var(--bg-card);
+        border: 1px solid rgba(17, 24, 39, 0.08);
+        border-radius: var(--radius-lg);
+        padding: var(--space-4);
+        box-shadow: var(--shadow-sm);
+      }
+
+      .card h3 {
+        margin: 0 0 var(--space-2) 0;
+        font-size: var(--text-lg);
+      }
+
+      .muted {
+        color: var(--text-secondary);
+        font-size: var(--text-sm);
+        line-height: 1.35;
+      }
+
+      .row {
+        display: flex;
+        gap: var(--space-3);
+        align-items: center;
+        justify-content: space-between;
+        flex-wrap: wrap;
+      }
+
+      .badge {
+        font-size: var(--text-xs);
+        padding: 6px 10px;
+        border-radius: 999px;
+        border: 1px solid rgba(17, 24, 39, 0.10);
+        background: var(--bg-secondary);
+        color: var(--text-secondary);
+        white-space: nowrap;
+      }
+
+      .badge.status-current {
+        background: rgba(5, 150, 105, 0.10);
+        border-color: rgba(5, 150, 105, 0.20);
+        color: #065f46;
+      }
+      .badge.status-late {
+        background: rgba(220, 38, 38, 0.10);
+        border-color: rgba(220, 38, 38, 0.20);
+        color: #7f1d1d;
+      }
+
+      table {
+        width: 100%;
+        border-collapse: collapse;
+        background: var(--bg-card);
+        border: 1px solid rgba(17, 24, 39, 0.08);
+        border-radius: var(--radius-lg);
+        overflow: hidden;
+      }
+
+      th,
+      td {
+        text-align: left;
+        padding: 12px 12px;
+        font-size: var(--text-sm);
+        border-bottom: 1px solid rgba(17, 24, 39, 0.06);
+      }
+
+      th {
+        color: var(--text-secondary);
+        font-size: var(--text-xs);
+        text-transform: uppercase;
+        letter-spacing: 0.06em;
+        background: var(--bg-secondary);
+      }
+
+      tr:last-child td {
+        border-bottom: none;
+      }
+
+      details {
+        border: 1px solid rgba(17, 24, 39, 0.08);
+        border-radius: var(--radius-lg);
+        background: var(--bg-card);
+        box-shadow: var(--shadow-sm);
+        overflow: hidden;
+      }
+
+      details summary {
+        cursor: pointer;
+        padding: var(--space-4);
+        list-style: none;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: var(--space-3);
+      }
+
+      details summary::-webkit-details-marker {
+        display: none;
+      }
+
+      details .content {
+        padding: 0 var(--space-4) var(--space-4) var(--space-4);
+      }
+
+      .kv {
+        display: grid;
+        grid-template-columns: 1fr;
+        gap: var(--space-3);
+      }
+
+      @media (min-width: 768px) {
+        .kv {
+          grid-template-columns: repeat(2, minmax(0, 1fr));
+        }
+      }
+
+      .field label {
+        display: block;
+        font-size: var(--text-xs);
+        color: var(--text-secondary);
+        margin-bottom: var(--space-2);
+      }
+
+      input[type="number"],
+      input[type="text"] {
+        width: 100%;
+        padding: 10px 12px;
+        border-radius: var(--radius-md);
+        border: 1px solid rgba(17, 24, 39, 0.14);
+        background: var(--bg-secondary);
+        outline: none;
+        font-size: var(--text-sm);
+        transition: box-shadow 120ms ease, border-color 120ms ease, background 120ms ease;
+      }
+
+      input[type="number"]:focus,
+      input[type="text"]:focus {
+        border-color: rgba(59, 130, 246, 0.8);
+        box-shadow: 0 0 0 4px rgba(59, 130, 246, 0.15);
+        background: #fff;
+      }
+
+      .section-title {
+        font-size: var(--text-base);
+        font-weight: var(--font-bold);
+        margin: var(--space-4) 0 var(--space-2) 0;
+      }
+
+      .file-input {
+        display: inline-flex;
+        align-items: center;
+        gap: var(--space-2);
+      }
+      .file-input input[type="file"] {
+        display: none;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <header>
+        <div class="title">
+          <h1>Property & Mortgage Database</h1>
+          <div class="subtitle">
+            Property portfolio overview, detailed mortgage data, recent payment history, and a unified payment calendar view. Data is stored locally in your browser.
+          </div>
+        </div>
+
+        <div class="header-actions">
+          <a class="button secondary" href="./family-calendar-2026.html">Calendar</a>
+          <button class="button primary" id="exportBtn" type="button">Export Properties (JSON)</button>
+          <span class="file-input">
+            <input id="importFile" type="file" accept="application/json" />
+            <label for="importFile" class="button secondary">Import Properties (JSON)</label>
+          </span>
+          <span class="save-indicator" id="saveIndicator" data-state="saved" title="Auto-save status">
+            <span class="dot" aria-hidden="true"></span>
+            <span id="saveText">Saved</span>
+          </span>
+        </div>
+      </header>
+
+      <nav class="tabs" role="tablist" aria-label="Property database tabs">
+        <button class="tab" id="tab-overview" role="tab" aria-selected="true" aria-controls="panel-overview">Overview</button>
+        <button class="tab" id="tab-properties" role="tab" aria-selected="false" aria-controls="panel-properties">Properties</button>
+        <button class="tab" id="tab-history" role="tab" aria-selected="false" aria-controls="panel-history">Payment History</button>
+        <button class="tab" id="tab-calendar" role="tab" aria-selected="false" aria-controls="panel-calendar">Calendar Integration</button>
+      </nav>
+
+      <section id="panel-overview" class="panel active" role="tabpanel" aria-labelledby="tab-overview">
+        <div class="grid three" id="overviewCards"></div>
+        <div style="height: var(--space-6)"></div>
+        <div class="card">
+          <h3>Quick Property Comparison</h3>
+          <div class="muted">Balances, rates, payment amounts, and current status.</div>
+          <div style="height: var(--space-4)"></div>
+          <div id="comparisonTable"></div>
+        </div>
+      </section>
+
+      <section id="panel-properties" class="panel" role="tabpanel" aria-labelledby="tab-properties">
+        <div id="propertyDetails"></div>
+      </section>
+
+      <section id="panel-history" class="panel" role="tabpanel" aria-labelledby="tab-history">
+        <div id="historyTables"></div>
+      </section>
+
+      <section id="panel-calendar" class="panel" role="tabpanel" aria-labelledby="tab-calendar">
+        <div class="card">
+          <h3>Upcoming Payment Schedule (2026)</h3>
+          <div class="muted">Combined mortgage payment dates for all properties.</div>
+          <div style="height: var(--space-4)"></div>
+          <div id="scheduleTable"></div>
+        </div>
+      </section>
+    </div>
+
+    <script>
+      (function () {
+        "use strict";
+
+        const STORAGE_KEY = "propertyDatabase";
+        const YEAR = 2026;
+        let storageAlertShown = false;
+
+        const defaultPropertyDatabase = {
+          graham2814: {
+            id: "graham2814",
+            address: "2814 Graham Blvd, Pittsburgh PA 15235",
+            propertyType: "Primary Residence",
+            ownership: ["Shaquala Swinton", "Donald Betts"],
+            lender: "loanDepot",
+            accountNumber: "4007165568",
+            loanType: "FHA Mortgage",
+            outstandingBalance: 286765.22,
+            interestRate: 2.9,
+            monthlyPayment: { total: 2434.96, principal: 609.99, interest: 713.01, escrow: 1111.96 },
+            currentAmountDue: 5007.91,
+            regularPayment: 2434.96,
+            lateCharge: 52.92,
+            pastDue: 49.81,
+            dueDate: 1,
+            nextPaymentDue: "2026-01-01",
+            pmiYTD: 2427.72,
+            taxesYTD: 8955.25,
+            hazardInsuranceYTD: 1348.0,
+            recentPayments: [
+              { date: "2025-12-16", type: "Late Notice", amount: 0, lateFee: 52.92, status: "Late Notice Sent" },
+              { date: "2025-11-08", type: "Mortgage Insurance", principal: 0, interest: 0, escrow: 202.31, total: 202.31, status: "Paid" },
+              { date: "2025-10-07", type: "Mortgage Insurance", principal: 0, interest: 0, escrow: 202.31, total: 202.31, status: "Paid" },
+            ],
+            status: "Late",
+          },
+          onyx311: {
+            id: "onyx311",
+            address: "311 Onyx Ave, Pittsburgh PA 15210",
+            propertyType: "Investment Property",
+            ownership: ["Shaquala Swinton", "Sister (Name TBD)"],
+            lender: "loanDepot",
+            accountNumber: "4008047641",
+            loanType: "Conventional Loan",
+            outstandingBalance: 31380.78,
+            interestRate: 5.0,
+            monthlyPayment: { total: 522.18, principal: 185.17, interest: 130.75, escrow: 206.26 },
+            currentAmountDue: 522.18,
+            lateCharge: 0.0,
+            dueDate: 1,
+            nextPaymentDue: "2026-01-01",
+            pmiYTD: 255.72,
+            taxesYTD: 1180.35,
+            hazardInsuranceYTD: 871.0,
+            rentalIncome: { sisterContribution: 650.0, frequency: "monthly", netCashFlow: 127.82 },
+            recentPayments: [
+              { date: "2025-12-16", type: "Mortgage Insurance", principal: 0, interest: 0, escrow: 21.31, total: 21.31, status: "Paid" },
+              { date: "2025-12-15", type: "Payment", principal: 183.98, interest: 131.94, escrow: 75.62, total: 291.54, status: "Paid" },
+              { date: "2025-11-15", type: "Payment", principal: 183.98, interest: 131.94, escrow: 75.62, total: 291.54, status: "Paid" },
+            ],
+            status: "Current",
+          },
+          s18th2101: {
+            id: "s18th2101",
+            address: "2101 S 18th Street, Pittsburgh PA",
+            propertyType: "Investment Property",
+            ownership: ["SDB Realty LLC"],
+            lender: "Clearview Federal Credit Union",
+            accountNumber: "0012161375-0000",
+            loanType: "Credit Union Loan",
+            outstandingBalance: 71415.16,
+            interestRate: 7.75,
+            dailyPeriodicRate: 0.021527,
+            monthlyPayment: { total: 754.98, principal: 599.95, interest: 155.03, escrow: 0.0 },
+            currentAmountDue: 807.78,
+            currentPayment: 754.98,
+            pastDuePayment: 49.81,
+            lateCharge: 0.0,
+            dueDate: 7,
+            nextPaymentDue: "2025-12-07",
+            autoPaymentScheduled: true,
+            autoPaymentDate: "2025-12-07",
+            maturityDate: "2034-11-07",
+            interestPaidYTD: 5843.23,
+            recentPayments: [
+              {
+                date: "2025-12-12",
+                type: "Payment ACH CLEARVIEW FCU",
+                principal: 599.95,
+                interest: 155.03,
+                escrow: 0,
+                total: 754.98,
+                loanBalance: 71415.16,
+                status: "Paid",
+              },
+              {
+                date: "2025-12-02",
+                type: "Payment Transfer From Share 0010",
+                principal: 266.96,
+                interest: 437.77,
+                escrow: 0,
+                lateFee: 45.27,
+                total: 750.0,
+                loanBalance: 72015.11,
+                status: "Paid",
+              },
+              { date: "2025-11-18", type: "Beginning Balance", loanBalance: 72282.07 },
+            ],
+            status: "Current",
+          },
+        };
+
+        const ui = {
+          tabs: Array.from(document.querySelectorAll(".tab")),
+          panels: {
+            overview: document.getElementById("panel-overview"),
+            properties: document.getElementById("panel-properties"),
+            history: document.getElementById("panel-history"),
+            calendar: document.getElementById("panel-calendar"),
+          },
+          overviewCards: document.getElementById("overviewCards"),
+          comparisonTable: document.getElementById("comparisonTable"),
+          propertyDetails: document.getElementById("propertyDetails"),
+          historyTables: document.getElementById("historyTables"),
+          scheduleTable: document.getElementById("scheduleTable"),
+          exportBtn: document.getElementById("exportBtn"),
+          importFile: document.getElementById("importFile"),
+          saveIndicator: document.getElementById("saveIndicator"),
+          saveText: document.getElementById("saveText"),
+        };
+
+        function safeJSONParse(s) {
+          try {
+            return JSON.parse(s);
+          } catch {
+            return null;
+          }
+        }
+
+        function setSaveState(state, text) {
+          ui.saveIndicator.dataset.state = state;
+          ui.saveText.textContent = text;
+        }
+
+        function safeLocalStorageSet(key, value) {
+          try {
+            localStorage.setItem(key, value);
+            return { ok: true };
+          } catch (e) {
+            console.error("Storage error:", e);
+            return { ok: false, error: e };
+          }
+        }
+
+        function debounce(fn, ms) {
+          let t = null;
+          return function (...args) {
+            if (t) window.clearTimeout(t);
+            t = window.setTimeout(() => fn.apply(this, args), ms);
+          };
+        }
+
+        function formatMoney(amount) {
+          const n = typeof amount === "number" && Number.isFinite(amount) ? amount : 0;
+          return n.toLocaleString(undefined, { style: "currency", currency: "USD" });
+        }
+
+        function parseNonNegativeNumber(value) {
+          const n = Number(value);
+          if (!Number.isFinite(n)) return 0;
+          return Math.max(0, n);
+        }
+
+        function buildISODate(year, month, day) {
+          return `${year}-${String(month).padStart(2, "0")}-${String(day).padStart(2, "0")}`;
+        }
+
+        function statusBadge(status) {
+          const s = String(status || "").toLowerCase();
+          const cls = s === "late" ? "status-late" : "status-current";
+          const label = s === "late" ? "Late" : "Current";
+          return `<span class="badge ${cls}">${label}</span>`;
+        }
+
+        function getOrInitDb() {
+          const raw = localStorage.getItem(STORAGE_KEY);
+          const parsed = raw ? safeJSONParse(raw) : null;
+          if (parsed && typeof parsed === "object") return parsed;
+          safeLocalStorageSet(STORAGE_KEY, JSON.stringify(defaultPropertyDatabase));
+          return defaultPropertyDatabase;
+        }
+
+        function saveDb(db) {
+          setSaveState("saving", "Saving…");
+          const res = safeLocalStorageSet(STORAGE_KEY, JSON.stringify(db));
+          if (res.ok) setSaveState("saved", "Saved");
+          else {
+            setSaveState("error", "Save failed");
+            if (!storageAlertShown) {
+              storageAlertShown = true;
+              alert("Unable to save data. Storage may be full.");
+            }
+          }
+        }
+        const saveDbDebounced = debounce(saveDb, 300);
+
+        function computePortfolioSummary(db) {
+          const props = Object.values(db || {});
+          const totalMortgageBalance = props.reduce((sum, p) => sum + parseNonNegativeNumber(p.outstandingBalance), 0);
+          const totalMonthlyPayments = props.reduce((sum, p) => sum + parseNonNegativeNumber(p.monthlyPayment?.total), 0);
+          const rentalIncome = parseNonNegativeNumber(db?.onyx311?.rentalIncome?.sisterContribution);
+          const netMonthlyPayments = totalMonthlyPayments - rentalIncome;
+          return { totalMortgageBalance, totalMonthlyPayments, rentalIncome, netMonthlyPayments };
+        }
+
+        function renderOverview(db) {
+          const sum = computePortfolioSummary(db);
+          ui.overviewCards.innerHTML = "";
+          ui.overviewCards.appendChild(cardMetric("Total Properties", String(Object.keys(db).length)));
+          ui.overviewCards.appendChild(cardMetric("Total Mortgage Balance", formatMoney(sum.totalMortgageBalance)));
+          ui.overviewCards.appendChild(cardMetric("Total Monthly Obligations", formatMoney(sum.totalMonthlyPayments)));
+          ui.overviewCards.appendChild(cardMetric("Rental Income (311 Onyx)", formatMoney(sum.rentalIncome)));
+          ui.overviewCards.appendChild(cardMetric("Net Monthly Mortgage Cost", formatMoney(sum.netMonthlyPayments)));
+          ui.overviewCards.appendChild(cardMetric("Year", String(YEAR)));
+
+          const rows = Object.values(db).map((p) => {
+            return [
+              p.address || "",
+              p.lender || "",
+              p.accountNumber || "",
+              formatMoney(parseNonNegativeNumber(p.outstandingBalance)),
+              `${parseNonNegativeNumber(p.interestRate).toFixed(3)}%`,
+              formatMoney(parseNonNegativeNumber(p.monthlyPayment?.total)),
+              `Day ${String(p.dueDate ?? "")}`,
+              statusBadge(p.status),
+            ];
+          });
+
+          ui.comparisonTable.innerHTML = tableHtml(
+            ["Address", "Lender", "Account", "Balance", "Rate", "Monthly Payment", "Due", "Status"],
+            rows
+          );
+        }
+
+        function cardMetric(label, value) {
+          const el = document.createElement("div");
+          el.className = "card";
+          el.innerHTML = `<div class="muted" style="text-transform: uppercase; letter-spacing: 0.06em; font-size: var(--text-xs)">${escapeHtml(
+            label
+          )}</div><div style="font-size: var(--text-2xl); font-weight: var(--font-bold); margin-top: var(--space-2)">${escapeHtml(value)}</div>`;
+          return el;
+        }
+
+        function tableHtml(headers, rows) {
+          const thead = `<thead><tr>${headers.map((h) => `<th>${escapeHtml(h)}</th>`).join("")}</tr></thead>`;
+          const tbody =
+            `<tbody>` +
+            rows
+              .map((r) => `<tr>${r.map((c) => `<td>${typeof c === "string" ? c : escapeHtml(String(c))}</td>`).join("")}</tr>`)
+              .join("") +
+            `</tbody>`;
+          return `<table>${thead}${tbody}</table>`;
+        }
+
+        function escapeHtml(s) {
+          return String(s)
+            .replaceAll("&", "&amp;")
+            .replaceAll("<", "&lt;")
+            .replaceAll(">", "&gt;")
+            .replaceAll('"', "&quot;")
+            .replaceAll("'", "&#039;");
+        }
+
+        function renderProperties(db) {
+          const wrap = document.createElement("div");
+          wrap.className = "grid";
+
+          for (const p of Object.values(db)) {
+            const det = document.createElement("details");
+            det.id = `property-${p.id}`;
+            const isTarget = getTargetPropertyIdFromHash() === p.id;
+            if (isTarget) det.open = true;
+
+            det.innerHTML = `
+              <summary>
+                <div style="min-width: 0">
+                  <div style="font-weight: var(--font-bold)">${escapeHtml(p.address || "")}</div>
+                  <div class="muted">${escapeHtml(p.lender || "")} · Account ${escapeHtml(p.accountNumber || "")}</div>
+                </div>
+                <div class="row" style="justify-content: flex-end">
+                  ${statusBadge(p.status)}
+                  <span class="badge">${escapeHtml(p.propertyType || "")}</span>
+                </div>
+              </summary>
+              <div class="content">
+                <div class="section-title">Core Details</div>
+                <div class="kv" data-property-id="${escapeHtml(p.id)}">
+                  ${fieldText(p.id, "address", "Address", p.address || "")}
+                  ${fieldText(p.id, "lender", "Servicer / Lender", p.lender || "")}
+                  ${fieldText(p.id, "accountNumber", "Account Number", p.accountNumber || "")}
+                  ${fieldText(p.id, "loanType", "Loan Type", p.loanType || "")}
+                  ${fieldText(p.id, "propertyType", "Property Type", p.propertyType || "")}
+                  ${fieldText(p.id, "ownership", "Owners (comma-separated)", (p.ownership || []).join(", "))}
+                </div>
+
+                <div class="section-title">Financials</div>
+                <div class="kv" data-property-id="${escapeHtml(p.id)}">
+                  ${fieldNumber(p.id, "outstandingBalance", "Outstanding Balance", p.outstandingBalance)}
+                  ${fieldNumber(p.id, "interestRate", "Interest Rate (APR %)", p.interestRate)}
+                  ${fieldNumber(p.id, "currentAmountDue", "Current Amount Due", p.currentAmountDue)}
+                  ${fieldNumber(p.id, "lateCharge", "Late Charge", p.lateCharge)}
+                  ${fieldNumber(p.id, "dueDate", "Due Day (1–28)", p.dueDate)}
+                </div>
+
+                <div class="section-title">Monthly Payment Breakdown</div>
+                <div class="kv" data-property-id="${escapeHtml(p.id)}">
+                  ${fieldNumber(p.id, "monthlyPayment.total", "Total", p.monthlyPayment?.total)}
+                  ${fieldNumber(p.id, "monthlyPayment.principal", "Principal", p.monthlyPayment?.principal)}
+                  ${fieldNumber(p.id, "monthlyPayment.interest", "Interest", p.monthlyPayment?.interest)}
+                  ${fieldNumber(p.id, "monthlyPayment.escrow", "Escrow", p.monthlyPayment?.escrow)}
+                </div>
+
+                <div class="section-title">Notes</div>
+                <div class="muted">
+                  ${p.autoPaymentScheduled ? "Auto-pay is enabled for this property." : "Auto-pay is not marked as enabled for this property."}
+                </div>
+              </div>
+            `;
+
+            wrap.appendChild(det);
+          }
+
+          ui.propertyDetails.innerHTML = "";
+          ui.propertyDetails.appendChild(wrap);
+
+          // Attach listeners to inputs for editing and auto-save.
+          ui.propertyDetails.querySelectorAll("input[data-path]").forEach((input) => {
+            input.addEventListener("input", () => {
+              const propertyId = input.getAttribute("data-property-id");
+              const path = input.getAttribute("data-path");
+              if (!propertyId || !path) return;
+              const nextValue =
+                input.type === "number" ? parseNonNegativeNumber(input.value) : String(input.value || "");
+              if (input.type === "number") input.value = String(nextValue);
+              updateDb(propertyId, path, nextValue);
+            });
+          });
+        }
+
+        function fieldText(propertyId, path, label, value) {
+          return `
+            <div class="field">
+              <label>${escapeHtml(label)}</label>
+              <input type="text" value="${escapeHtml(value)}" data-property-id="${escapeHtml(propertyId)}" data-path="${escapeHtml(path)}" />
+            </div>
+          `;
+        }
+
+        function fieldNumber(propertyId, path, label, value) {
+          const n = parseNonNegativeNumber(value);
+          return `
+            <div class="field">
+              <label>${escapeHtml(label)}</label>
+              <input type="number" min="0" step="0.01" value="${escapeHtml(String(n))}" data-property-id="${escapeHtml(propertyId)}" data-path="${escapeHtml(path)}" />
+            </div>
+          `;
+        }
+
+        function renderHistory(db) {
+          const wrap = document.createElement("div");
+          wrap.className = "grid";
+
+          for (const p of Object.values(db)) {
+            const card = document.createElement("div");
+            card.className = "card";
+            const rows = (p.recentPayments || []).map((tx) => {
+              const amount =
+                tx.total ??
+                tx.amount ??
+                (tx.principal || 0) + (tx.interest || 0) + (tx.escrow || 0) +
+                  (tx.lateFee || 0);
+              return [
+                escapeHtml(tx.date || ""),
+                escapeHtml(tx.type || ""),
+                formatMoney(parseNonNegativeNumber(amount)),
+                escapeHtml(tx.status || ""),
+              ];
+            });
+            card.innerHTML = `
+              <div class="row">
+                <h3 style="margin: 0">${escapeHtml(p.address || "")}</h3>
+                ${statusBadge(p.status)}
+              </div>
+              <div class="muted">${escapeHtml(p.lender || "")} · Account ${escapeHtml(p.accountNumber || "")}</div>
+              <div style="height: var(--space-4)"></div>
+              ${tableHtml(["Date", "Type", "Amount", "Status"], rows)}
+            `;
+            wrap.appendChild(card);
+          }
+
+          ui.historyTables.innerHTML = "";
+          ui.historyTables.appendChild(wrap);
+        }
+
+        function renderCalendarIntegration(db) {
+          const schedule = [];
+          for (const p of Object.values(db)) {
+            const dueDay = Number(p.dueDate) || 1;
+            for (let m = 1; m <= 12; m++) {
+              const iso = buildISODate(YEAR, m, dueDay);
+              schedule.push({
+                dateISO: iso,
+                propertyId: p.id,
+                address: p.address,
+                lender: p.lender,
+                accountNumber: p.accountNumber,
+                amount: parseNonNegativeNumber(p.monthlyPayment?.total),
+                autoPay: !!p.autoPaymentScheduled,
+              });
+            }
+          }
+          schedule.sort((a, b) => a.dateISO.localeCompare(b.dateISO));
+
+          const rows = schedule.map((s) => [
+            escapeHtml(s.dateISO),
+            escapeHtml(s.address),
+            escapeHtml(s.accountNumber),
+            formatMoney(s.amount),
+            s.autoPay ? "Auto-pay" : "",
+          ]);
+          ui.scheduleTable.innerHTML = tableHtml(["Date", "Property", "Account", "Expected Payment", "Notes"], rows);
+        }
+
+        function updateDb(propertyId, path, value) {
+          const p = db[propertyId];
+          if (!p) return;
+
+          // Basic validation rules
+          if (path === "dueDate") {
+            const day = Math.min(28, Math.max(1, Math.round(Number(value) || 1)));
+            value = day;
+          }
+          if (path === "interestRate") {
+            value = Math.min(100, Math.max(0, Number(value) || 0));
+          }
+
+          // Keep browser support aligned with Chrome 90+ (no structuredClone).
+          const next = safeJSONParse(JSON.stringify(db));
+          let obj = next[propertyId];
+          const parts = path.split(".");
+          for (let i = 0; i < parts.length - 1; i++) {
+            const key = parts[i];
+            if (!obj[key] || typeof obj[key] !== "object") obj[key] = {};
+            obj = obj[key];
+          }
+          obj[parts[parts.length - 1]] = value;
+
+          // Special handling: ownership string -> array
+          if (path === "ownership") {
+            next[propertyId].ownership = String(value)
+              .split(",")
+              .map((s) => s.trim())
+              .filter(Boolean);
+          }
+
+          // Keep status heuristic: if currentAmountDue > regularPayment then mark late.
+          const reg = parseNonNegativeNumber(next[propertyId].regularPayment ?? next[propertyId].monthlyPayment?.total);
+          const due = parseNonNegativeNumber(next[propertyId].currentAmountDue);
+          next[propertyId].status = due > reg + 0.01 ? "Late" : "Current";
+
+          db = next;
+          saveDbDebounced(db);
+          refresh();
+        }
+
+        function setActiveTab(tabId) {
+          const mapping = {
+            "tab-overview": "overview",
+            "tab-properties": "properties",
+            "tab-history": "history",
+            "tab-calendar": "calendar",
+          };
+          const key = mapping[tabId] || "overview";
+          for (const t of ui.tabs) t.setAttribute("aria-selected", t.id === tabId ? "true" : "false");
+          for (const [k, panel] of Object.entries(ui.panels)) panel.classList.toggle("active", k === key);
+        }
+
+        function exportProperties() {
+          const payload = { exportedAt: new Date().toISOString(), propertyDatabase: db };
+          const blob = new Blob([JSON.stringify(payload, null, 2)], { type: "application/json" });
+          const url = URL.createObjectURL(blob);
+          const a = document.createElement("a");
+          a.href = url;
+          a.download = `betts-property-database.json`;
+          document.body.appendChild(a);
+          a.click();
+          a.remove();
+          URL.revokeObjectURL(url);
+        }
+
+        async function importProperties(file) {
+          const text = await file.text();
+          const payload = safeJSONParse(text);
+          const pd = payload?.propertyDatabase;
+          if (!pd || typeof pd !== "object") {
+            alert("Import failed: missing propertyDatabase object.");
+            return;
+          }
+          const set = safeLocalStorageSet(STORAGE_KEY, JSON.stringify(pd));
+          if (!set.ok) {
+            alert("Import failed: unable to save. Storage may be full.");
+            return;
+          }
+          db = pd;
+          setSaveState("saved", "Saved");
+          refresh();
+        }
+
+        function getTargetPropertyIdFromHash() {
+          const h = String(window.location.hash || "");
+          const m = h.match(/property=([^&]+)/);
+          if (!m) return null;
+          try {
+            return decodeURIComponent(m[1]);
+          } catch {
+            return m[1];
+          }
+        }
+
+        function refresh() {
+          renderOverview(db);
+          renderProperties(db);
+          renderHistory(db);
+          renderCalendarIntegration(db);
+
+          // If hash targets a property, auto-switch to Properties tab.
+          const target = getTargetPropertyIdFromHash();
+          if (target) setActiveTab("tab-properties");
+        }
+
+        let db = null;
+
+        function init() {
+          db = getOrInitDb();
+
+          ui.tabs.forEach((t) => {
+            t.addEventListener("click", () => setActiveTab(t.id));
+          });
+
+          ui.exportBtn.addEventListener("click", exportProperties);
+          ui.importFile.addEventListener("change", async () => {
+            const f = ui.importFile.files && ui.importFile.files[0];
+            ui.importFile.value = "";
+            if (!f) return;
+            await importProperties(f);
+          });
+
+          window.addEventListener("hashchange", refresh);
+          refresh();
+        }
+
+        init();
+      })();
+    </script>
+  </body>
+</html>
