@@ -16,10 +16,17 @@
 
 ## 2) Operating hours + blackout dates
 
-- **Operating days**: [list]
-- **Pickup windows**: [times]
-- **Delivery windows**: [times]
-- **Blackout dates**: [list]
+- **Time zone**: Eastern Standard Time (EST)
+- **Operating days**: Tuesday–Saturday
+  - Closed: Sunday + Monday
+- **Booking windows** (for the following booking types):
+  - Cart order
+  - Engraving table
+  - Stop-in for a tray / tray pickup
+  - **Window**: 10:00 AM – 9:00 PM (EST)
+- **Pickup windows**: 10:00 AM – 9:00 PM (EST), Tue–Sat
+- **Delivery windows**: 10:00 AM – 9:00 PM (EST), Tue–Sat
+- **Blackout dates**: TBD (add as needed)
 
 ---
 
