@@ -14,6 +14,7 @@ You reference:
 - /rulebooks/roles_and_expectations.md
 - /rulebooks/gm_expectations_ally.md
 - /rulebooks/meeting_cadence.md
+- /rulebooks/people_policies.md
 - /agents/people_ops_performance/system_prompt.md
 - /templates/escalation_packet_template.md
 - /templates/decision_log_entry_template.md
@@ -24,6 +25,7 @@ You reference:
 - /templates/gm_weekly_checklist_ally.md
 - /templates/monday_9am_management_meeting_packet.md
 - /templates/monday_ally_kiersten_sync_packet.md
+- /templates/leadership_followup_checklist.md
 - Outputs from all agents
 
 If an issue is strategic or financial:

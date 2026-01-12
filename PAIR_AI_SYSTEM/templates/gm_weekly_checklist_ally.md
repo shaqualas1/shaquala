@@ -25,6 +25,16 @@
 
 ---
 
+## Wednesday (mid-week labor + schedule check)
+
+- [ ] Update “Revenue vs labor” week-to-date
+- [ ] Check sales trend vs schedule for Thu–Sat
+- [ ] Decide if shifts should be adjusted (add/cut hours) based on revenue vs wages
+- [ ] Confirm Kiersten coverage needed for production priorities (especially Saturday production day)
+- [ ] Send schedule adjustments + rationale to Founder (and People Ops if filled)
+
+---
+
 ## Production days
 
 - [ ] Production days executed
