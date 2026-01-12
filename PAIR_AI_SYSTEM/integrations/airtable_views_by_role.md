@@ -1,4 +1,4 @@
-## Airtable Views by Role (Owner / Ally / Emma / General)
+## Airtable Views by Role (Owner / Ally / Emma / Kiersten / General)
 
 **Goal**: Everyone sees what they need, nothing more. Same data, different views.
 
@@ -69,7 +69,29 @@ This is designed for Airtable **Interfaces** (dashboards), backed by standard ta
 
 ---
 
-## 4) General view (shared ops dashboard)
+## 4) Kiersten view (Kitchen + Social dashboard)
+
+### Interface page: `KIERSTEN — Kitchen + Social`
+
+**Blocks to include**
+- `Kiersten’s shifts` (from `Shifts`, Assigned to = Kiersten, Date = this week)
+- `BOH/Kitchen tasks` (from `Tasks`, Area = BOH or Kitchen, Status != Done)
+- `Production day plan` (from `Production Days`, next production day + linked orders)
+- `Orders & Events — This week (kitchen-impacting)`
+  - Filter Types in {Catering, Cart, Tray, Workshop, Brunch, Private event} AND Status in active states
+- `Kitchen inventory watchlist`
+  - From `Inventory`, Category in {Dairy, Meat, Cheese, Produce, Dry goods, Packaging} AND Reorder qty > 0
+- `Social content tasks`
+  - From `Tasks`, Area = Marketing AND Owner = Kiersten (or Assigned lead = Kiersten)
+
+**Must-have table views behind it**
+- `Tasks — Kitchen`
+- `Inventory — Kitchen low`
+- `Production Days — Next`
+
+---
+
+## 5) General view (shared ops dashboard)
 
 ### Interface page: `GENERAL — Today`
 
@@ -86,7 +108,7 @@ This is designed for Airtable **Interfaces** (dashboards), backed by standard ta
 
 ---
 
-## 5) How to build this quickly (click-by-click)
+## 6) How to build this quickly (click-by-click)
 
 1) In Airtable, open your base → click **Interfaces**
 2) Create a new Interface called: **PAIR Ops**
@@ -94,6 +116,7 @@ This is designed for Airtable **Interfaces** (dashboards), backed by standard ta
    - OWNER — Weekly Command Center
    - ALLY — GM Daily Ops
    - EMMA — FOH Command
+   - KIERSTEN — Kitchen + Social
    - GENERAL — Today
 4) On each page, add blocks from tables (`Shifts`, `Orders & Events`, `Inventory`, `Tasks`, `Meetings/Scorecards`)
 5) Set filters per page (as specified above)
