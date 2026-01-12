@@ -15,6 +15,7 @@
 2) **Base ID**
 - Open your base in Airtable.
 - Base ID usually looks like `appXXXXXXXXXXXXXX`.
+- From your link, your Base ID appears to be: `appedOf48YBJQjyT4`
 
 3) **Table name** (or Table ID)
 - Use the table name exactly as it appears (example: `Inventory`).
@@ -25,7 +26,7 @@ From the repo root:
 
 ```bash
 export AIRTABLE_TOKEN="pat_..."
-export AIRTABLE_BASE_ID="app..."
+export AIRTABLE_BASE_ID="appedOf48YBJQjyT4"
 export AIRTABLE_TABLE="Inventory"
 python3 "PAIR_AI_SYSTEM/integrations/airtable_pull_inventory.py"
 ```
