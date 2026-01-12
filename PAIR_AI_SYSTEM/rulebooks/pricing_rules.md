@@ -35,6 +35,13 @@
 - **Price**: $[amount] per [unit]
 - **Minimum/maximum**: [constraints]
 
+### Warm Winter drink pricing (signature menu)
+
+- **Signature drinks**: $6.25 / $6.75 / $7.25
+  - Sizes: [define size names/oz that map to the 3 prices]
+- **Oat milk**: +$0.50
+- **Cold foam (vanilla OR cookie butter)**: +$0.50
+
 ---
 
 ## 4) Fees

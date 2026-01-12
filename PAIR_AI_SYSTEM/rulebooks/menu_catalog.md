@@ -62,6 +62,31 @@ This document reflects the current PAIR menu across **Breakfast**, **Lunch**, an
 - Fruit cup
 - Yogurt parfait (dairy)
 
+### Warm Winter (seasonal) — signature drinks
+
+> Signature drinks are available as written below. If it’s not listed here, it’s not a signature drink.
+
+- **Pistachio latte** (signature)
+- **Sweet potato latte** (signature)
+- **Blueberry latte** (signature)
+
+- **Toasted Cherry Latte**
+  - Espresso, cherry, caramel, sugared milk
+- **Spiced Ginger Latte**
+  - Espresso, ginger, nutmeg, cinnamon, caramel, milk
+- **Peppermint Mocha**
+  - Espresso, peppermint, dark chocolate, milk
+- **Gingerbread Milk Tea**
+  - Black tea, gingerbread, vanilla, milk
+- **Candied Cherry Matcha Latte**
+  - Matcha, cherry, vanilla, brown sugar, milk
+- **Pistachio Torte Latte**
+  - Espresso, pistachio, vanilla, cinnamon, milk
+- **Danish Butter Cookie Latte**
+  - Espresso, cookie butter, vanilla, milk
+- **Caramel Brulee Chai**
+  - Chai, toasted caramel sauce, sugared milk
+
 ### Lunch
 
 **Sandwiches**
@@ -130,6 +155,13 @@ This document reflects the current PAIR menu across **Breakfast**, **Lunch**, an
   - **Allergens**: dairy
 - **Extra meat**
   - **Allergens**: varies
+
+### Beverage add-ons
+
+- **Oat milk**
+  - **Allergens**: varies by product (confirm if needed)
+- **Cold foam** (vanilla or cookie butter)
+  - **Allergens**: dairy
 
 ---
 

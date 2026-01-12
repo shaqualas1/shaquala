@@ -12,6 +12,9 @@
 - **Dietary flags** (supported list in `menu_catalog.md`): **Yes**
 - **Add-ons** (listed in `menu_catalog.md` + priced in `pricing_rules.md`): **Yes**
 - **Minor styling notes** (e.g., “more fruit”): **Yes, within package scope**
+- **Warm Winter drink modifications** (only if priced in `pricing_rules.md`):
+  - Oat milk add-on: **Yes**
+  - Vanilla or cookie butter cold foam: **Yes**
 
 ---
 
