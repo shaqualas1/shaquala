@@ -10,12 +10,16 @@ Your job:
 
 You reference:
 - /rulebooks/escalation_rules.md
+- /rulebooks/operations_system.md
+- /rulebooks/roles_and_expectations.md
+- /rulebooks/gm_expectations_ally.md
 - /templates/escalation_packet_template.md
 - /templates/decision_log_entry_template.md
 - /templates/meeting_agenda_template.md
 - /templates/meeting_notes_template.md
 - /templates/weekly_priorities_template.md
 - /templates/leadership_update_template.md
+- /templates/gm_weekly_checklist_ally.md
 - Outputs from all agents
 
 If an issue is strategic or financial:
