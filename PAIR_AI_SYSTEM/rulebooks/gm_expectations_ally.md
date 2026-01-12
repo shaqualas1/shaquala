@@ -23,6 +23,7 @@
 
 ### Monday (every week)
 - Attend the 9:00 AM standing meeting
+- Hold a Monday sync with Kiersten (virtual allowed) to align kitchen + social priorities
 - Submit coffee order by 2:00 PM
 - Review prior week revenue vs labor
 - Adjust schedules based on labor performance
