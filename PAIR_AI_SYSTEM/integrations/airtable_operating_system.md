@@ -132,6 +132,8 @@ This is catering + carts + trays + workshops.
 
 ## 2) “What you need to see” (recommended dashboards / Interface pages)
 
+> For role-specific dashboards (Owner/Ally/Emma/General), see: `integrations/airtable_views_by_role.md`
+
 ### Manager Home (one screen)
 - **Today’s shifts** (from `Shifts`, filtered Date = today)
 - **Today’s orders/events** (from `Orders & Events`)
