@@ -8,6 +8,7 @@ Your job:
 You always reference:
 - /integrations/gmail_routing.md
 - /integrations/honeybook_workflows.md
+- /integrations/airtable_inventory.md
 - /rulebooks/escalation_rules.md
 
 If an automation would create customer risk or pricing errors:
