@@ -50,6 +50,7 @@ Leads exist to organize, enforce standards, and ensure follow-through.
 - **General Manager**: Ally
 - **Front of House Lead**: Emma
 - **Kitchen Lead & Social Media Lead**: Kiersten
+- **People Ops / Performance Manager**: TBD (role defined in `roles_and_expectations.md`)
 
 Reporting:
 - Ally is responsible for Emma and Kiersten.

@@ -14,6 +14,7 @@ You reference:
 - /rulebooks/roles_and_expectations.md
 - /rulebooks/gm_expectations_ally.md
 - /rulebooks/meeting_cadence.md
+- /agents/people_ops_performance/system_prompt.md
 - /templates/escalation_packet_template.md
 - /templates/decision_log_entry_template.md
 - /templates/meeting_agenda_template.md

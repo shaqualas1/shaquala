@@ -49,7 +49,38 @@ Responsible for:
 
 ---
 
-## 4) Shared expectations (non-negotiable)
+## 4) People Ops / Performance Manager — TBD
+
+Owns people systems: meeting participation support, scheduling process support, scorecards/metrics, incentives, training/upskilling, and performance assessments.
+
+Responsible for:
+- Meeting enablement
+  - Ensure recurring meetings have agendas + notes captured + action items assigned
+  - Maintain a cadence of weekly priorities and leadership updates (in partnership with COS)
+- Scheduling process support (does not replace GM)
+  - Collect availability, time-off, and constraints
+  - Prepare a draft schedule + coverage check for GM review
+  - Maintain a repeatable scheduling checklist/process
+- Scorecards + metrics
+  - Define role scorecards for GM/FOH/Kitchen (simple, measurable)
+  - Track weekly/monthly metrics and publish a scoreboard
+  - Maintain incentive program rules (what drives payouts/recognition)
+- Training + upskilling
+  - Maintain onboarding + training plans by role
+  - Coordinate monthly skill-building and refreshers
+  - Track completion and competency checks
+- Performance assessments
+  - Monthly check-ins (quick)
+  - Quarterly/biannual deeper reviews (as chosen)
+  - Annual assessments
+  - Support mediation when issues arise (documented, respectful, consistent)
+
+Key rule:
+- This role is a **manager**: they build systems, set expectations, coach, and follow up.
+
+---
+
+## 5) Shared expectations (non-negotiable)
 
 - Prep is shared.
 - Cleaning is shared.
