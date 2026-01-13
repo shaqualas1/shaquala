@@ -1,0 +1,7 @@
+.env
+.env.*
+*.secret
+*.secrets
+
+# Local exports / generated data
+/PAIR_AI_SYSTEM/data/
