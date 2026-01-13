@@ -18,7 +18,8 @@
 - From your link, your Base ID appears to be: `appedOf48YBJQjyT4`
 
 3) **Table name** (or Table ID)
-- Use the table name exactly as it appears (example: `Inventory`).
+- Use the table name exactly as it appears.
+- Your table name: `food shop inventory`
 
 ### How to run the pull
 
@@ -27,7 +28,7 @@ From the repo root:
 ```bash
 export AIRTABLE_TOKEN="pat_..."
 export AIRTABLE_BASE_ID="appedOf48YBJQjyT4"
-export AIRTABLE_TABLE="Inventory"
+export AIRTABLE_TABLE="food shop inventory"
 python3 "PAIR_AI_SYSTEM/integrations/airtable_pull_inventory.py"
 ```
 
