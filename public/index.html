@@ -1,0 +1,70 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <title>Pair Ordering Agent</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="stylesheet" href="./agent.css" />
+    <style>
+      body {
+        font-family: 'Inter', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+        background: radial-gradient(circle at top, #f4f6ff, #fbfbfd);
+        min-height: 100vh;
+        margin: 0;
+        color: #101828;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        padding: 2rem;
+      }
+      .demo-grid {
+        display: flex;
+        flex-direction: row;
+        gap: 2rem;
+        max-width: 1200px;
+        width: 100%;
+      }
+      .demo-copy {
+        max-width: 420px;
+      }
+      .demo-copy h1 {
+        font-size: clamp(2rem, 4vw, 3.5rem);
+        margin-bottom: 1rem;
+      }
+      .demo-copy p {
+        line-height: 1.6;
+      }
+      .demo-widget {
+        flex-grow: 1;
+        max-width: 480px;
+      }
+      @media (max-width: 960px) {
+        .demo-grid {
+          flex-direction: column;
+          align-items: stretch;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <main class="demo-grid">
+      <section class="demo-copy">
+        <h1>Pair ordering agent</h1>
+        <p>
+          Chat-first ordering embedded on any site. Capture leads, clarify specifications, and route warm
+          opportunities to your inbox or CRM with zero code beyond a single script tag.
+        </p>
+        <p>1. Start the dev server, 2. drop the snippet into your page, and 3. start collecting orders.</p>
+      </section>
+      <section class="demo-widget">
+        <div id="pair-ordering-agent"></div>
+      </section>
+    </main>
+    <script
+      src="./agent.js"
+      data-agent-container="pair-ordering-agent"
+      data-api-base=""
+      defer
+    ></script>
+  </body>
+</html>
